@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@backoffice-panel-app/muiapplib": ["libs/muiapplib/src/index.ts"],
+      "@backoffice-panel-app/shared": ["libs/shared/src/index.ts"]
+    },
+    "types": ["node"]
   },
   "exclude": ["node_modules", "tmp"]
 }
