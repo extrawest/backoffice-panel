@@ -1,7 +1,8 @@
+import { LoginPage } from "@backoffice-panel-app/muiapplib";
 
 const Login = () => {
 	return (
-		<div>Login</div>
+		<LoginPage/>
 	);
 };
 

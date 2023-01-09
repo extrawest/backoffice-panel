@@ -46,6 +46,9 @@
     "url-loader": "^4.1.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.4",
     "core-js": "^3.6.5",
     "firebase": "^9.15.0",
     "react": "18.2.0",
