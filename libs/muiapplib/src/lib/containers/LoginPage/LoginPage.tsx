@@ -1,36 +1,98 @@
 import { Box, Typography } from "@mui/material";
-import { Button } from "../../components";
+import { useSignInWithGoogle, useSignInWithFacebook, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { firebaseAuth, LoginFormValues } from "@backoffice-panel-app/shared";
+import { Button } from "../../components/common";
 import { PageLayout } from "../../layouts";
 import { loginPageStyles } from "./LoginPage.styles";
 import googleIcon from "../../assets/icons/google.svg";
 import facebookIcon from "../../assets/icons/facebook.svg";
 import appleIcon from "../../assets/icons/apple.svg";
+import { useCallback } from "react";
+import { LoginForm } from "../../components";
 
 export const LoginPage = () => {
+	const [
+		signInWithGoogle, ,
+		loadingSignInWithGoogle,
+		errorSignInWithGoogle
+	] = useSignInWithGoogle(firebaseAuth);
+
+	const [
+		signInWithFacebook, ,
+		loadingSignInWithFacebook,
+		errorSignInWithFacebook
+	] = useSignInWithFacebook(firebaseAuth);
+
+	const [
+		signInWithEmailAndPassword, ,
+		loadingSignInWithEmailAndPassword,
+		errorSignInWithEmailAndPassword
+	] = useSignInWithEmailAndPassword(firebaseAuth);
+
+	const handleSignInWithGoogle = useCallback(
+		() => {
+			signInWithGoogle();
+		},
+		[signInWithGoogle],
+	);
+	const handleSignInWithFacebook = useCallback(
+		() => {
+			signInWithFacebook();
+		},
+		[signInWithFacebook],
+	);
+	const handleSignInWithEmailAndPassword = useCallback(
+		(values: LoginFormValues) => {
+			signInWithEmailAndPassword(values.login ?? "", values.password ?? "");
+		},
+		[signInWithEmailAndPassword],
+	);
+
 	return (
-		<PageLayout>
+		<PageLayout
+			error={errorSignInWithFacebook || errorSignInWithGoogle || errorSignInWithEmailAndPassword}
+			isLoading={loadingSignInWithGoogle || loadingSignInWithFacebook || loadingSignInWithEmailAndPassword}
+		>
 			<Box
 				sx={loginPageStyles.root}
 			>
-				<Typography
-					variant="h1"
+				<Box
 					sx={loginPageStyles.title}
 				>
-					{`Login to account`}
-				</Typography>
+					<Typography
+						variant="h1"
+					>
+						Login
+					</Typography>
+					<Typography
+						variant="h1"
+					>
+						to account
+					</Typography>
+				</Box>
+
 				<Typography variant="body1">If you already have an account, just log in to use the system</Typography>
-				<Button type="blue">Log in</Button>
+				<LoginForm
+					initialValues={{
+						login: "",
+						password: ""
+					}}
+					onSubmit={handleSignInWithEmailAndPassword}
+				/>
 				<Box>
 					<Button
-						type="icon"
+						onClick={handleSignInWithFacebook}
+						variant="icon"
 						icon={facebookIcon}
 					/>
 					<Button
-						type="icon"
+						onClick={handleSignInWithGoogle}
+						variant="icon"
 						icon={googleIcon}
 					/>
 					<Button
-						type="icon"
+						disabled
+						variant="icon"
 						icon={appleIcon}
 					/>
 				</Box>

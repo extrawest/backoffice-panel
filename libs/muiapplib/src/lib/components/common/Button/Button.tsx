@@ -6,7 +6,9 @@ import { buttonStyles } from "./Button.styles";
 export const Button: FC<ButtonProps> = ({
 	children,
 	icon,
+	variant,
 	type,
+	sx,
 	...rest
 }) => {
 	return (
@@ -14,10 +16,12 @@ export const Button: FC<ButtonProps> = ({
 			disableRipple
 			disableFocusRipple
 			disableTouchRipple
+			type={type}
 			sx={[
-				type === "default" && buttonStyles.default,
-				type === "icon" && buttonStyles.icon,
-				type === "blue" && buttonStyles.blue,
+				sx as Record<string, unknown>,
+				variant === "default" && buttonStyles.default,
+				variant === "icon" && buttonStyles.icon,
+				variant === "blue" && buttonStyles.blue,
 			]}
 			{...rest}
 		>

@@ -4,7 +4,6 @@ export const loginPageStyles = {
 		maxHeight: 647,
 		height: "100vh",
 		width: "100vw",
-		backgroundColor: "beige",
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "space-evenly",
@@ -13,6 +12,5 @@ export const loginPageStyles = {
 	title: {
 	},
 	subTitle: {
-
 	}
 };

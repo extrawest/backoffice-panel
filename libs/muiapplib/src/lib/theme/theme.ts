@@ -30,3 +30,27 @@ export const theme = createTheme({
 
 theme.typography.h1.color = theme.palette.primary.dark;
 theme.typography.body1.color = theme.palette.primary.light;
+
+theme.components = {
+	MuiTextField: {
+		styleOverrides: {
+			root: {
+				width: "90%",
+				"& .MuiInputBase-root": {
+					borderRadius: "50px",
+					width: "100%",
+					height: "52px"
+				},
+				"& input": {
+					marginLeft: "20px",
+					fontFamily: "Open Sans",
+					fontStyle: "normal",
+					fontWeight: 300,
+					fontSize: "18px",
+					lineHeight: "22px",
+					color: "#5F6769"
+				}
+			}
+		}
+	},
+};

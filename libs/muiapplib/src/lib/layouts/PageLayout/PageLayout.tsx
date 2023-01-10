@@ -1,16 +1,33 @@
 import { FC, PropsWithChildren } from "react";
-import { Box } from "@mui/material";
+import { Box, Backdrop, CircularProgress, Snackbar } from "@mui/material";
 import { pageLayoutStyles } from "./PageLayout.styles";
+import { PageLayoutProps } from "./PageLayout.types";
 
-export const PageLayout: FC<PropsWithChildren> = ({
-	children
+export const PageLayout: FC<PropsWithChildren<PageLayoutProps>> = ({
+	children,
+	isLoading,
+	error
 }) => {
+	console.log("error", error);
 	return (
-		<Box
-			sx={pageLayoutStyles.root}
-		>
-			{children}
-		</Box>
+		<>
+			<Box
+				sx={pageLayoutStyles.root}
+			>
+				{children}
+			</Box>
+			<Backdrop
+				open={isLoading}
+			>
+				<CircularProgress />
+			</Backdrop>
+			<Snackbar
+				open={!!error}
+				autoHideDuration={6000}
+				message={error?.message}
+			/>
+		</>
+
 	);
 };
 
