@@ -20,7 +20,7 @@
     "@svgr/webpack": "^6.1.2",
     "@testing-library/react": "13.4.0",
     "@types/jest": "28.1.1",
-    "@types/node": "^16.11.7",
+    "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
@@ -46,12 +46,20 @@
     "url-loader": "^4.1.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@fontsource/open-sans": "^4.5.13",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/material": "^5.11.4",
     "core-js": "^3.6.5",
     "firebase": "^9.15.0",
+    "formik": "^2.2.9",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-firebase-hooks": "^5.1.1",
+    "react-router-dom": "^6.6.1",
     "regenerator-runtime": "0.13.7",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "yup": "^0.32.11"
   }
 }
