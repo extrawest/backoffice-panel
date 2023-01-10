@@ -1,7 +1,8 @@
+import { ClientsPage } from "@backoffice-panel-app/muiapplib";
 
 const Clients = () => {
 	return (
-		<div>Clients</div>
+		<ClientsPage />
 	);
 };
 

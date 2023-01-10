@@ -8,7 +8,6 @@ export const PageLayout: FC<PropsWithChildren<PageLayoutProps>> = ({
 	isLoading,
 	error
 }) => {
-	console.log("error", error);
 	return (
 		<>
 			<Box
@@ -17,7 +16,7 @@ export const PageLayout: FC<PropsWithChildren<PageLayoutProps>> = ({
 				{children}
 			</Box>
 			<Backdrop
-				open={isLoading}
+				open={!!isLoading}
 			>
 				<CircularProgress />
 			</Backdrop>

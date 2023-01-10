@@ -9,7 +9,5 @@ export const pageLayoutStyles = {
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center"
-	},
-	backdrop: {
 	}
 };

@@ -4,7 +4,12 @@ export const theme = createTheme({
 	palette: {
 		primary: {
 			dark: "#222831",
-			main: "#222831",
+			main: "#808080",
+			light: "#5F6769"
+		},
+		secondary: {
+			dark: "#474747",
+			main: "#505050",
 			light: "#5F6769"
 		}
 	},
@@ -17,6 +22,27 @@ export const theme = createTheme({
 			lineHeight: "66px",
 			textAlign: "center"
 		},
+		h2: {
+		},
+		h3: {
+			fontFamily: "Open Sans",
+			fontStyle: "normal",
+			fontWeight: 600,
+			fontSize: "22px",
+			lineHeight: "26px",
+			textAlign: "left"
+		},
+		h5: {
+			fontFamily: "Open Sans",
+			fontStyle: "normal",
+			fontWeight: 400,
+			fontSize: "20px",
+			lineHeight: "26px",
+			display: "flex",
+			gap: "5px",
+			cursor: "pointer",
+			width: "fit-content"
+		},
 		body1: {
 			fontFamily: "Roboto",
 			fontStyle: "normal",
@@ -24,12 +50,23 @@ export const theme = createTheme({
 			fontSize: 14,
 			lineHeight: "22px",
 			textAlign: "center",
+		},
+		subtitle1: {
+			fontFamily: "Open Sans",
+			fontStyle: "normal",
+			fontWeight: 300,
+			fontSize: "16px",
+			lineHeight: "22px",
+			textAlign: "left"
 		}
 	}
 });
 
 theme.typography.h1.color = theme.palette.primary.dark;
+theme.typography.h3.color = theme.palette.secondary.dark;
+theme.typography.h5.color = theme.palette.secondary.main;
 theme.typography.body1.color = theme.palette.primary.light;
+theme.typography.subtitle1.color = theme.palette.primary.main;
 
 theme.components = {
 	MuiTextField: {
@@ -53,4 +90,11 @@ theme.components = {
 			}
 		}
 	},
+	MuiCircularProgress: {
+		styleOverrides: {
+			root: {
+				color: theme.palette.primary.dark
+			}
+		}
+	}
 };
