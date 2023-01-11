@@ -4,4 +4,4 @@ export type InputProps = TextFieldProps & {
 	icon: AdormentIconType;
 };
 
-export type AdormentIconType = "password" | "login";
+export type AdormentIconType = "password" | "login" | "search";

@@ -2,7 +2,10 @@ import { Theme } from "@mui/material";
 
 export const buttonStyles = {
 	default: {
-
+		display: "flex",
+		flexDirection: "row",
+		flexWrap: "nowrap",
+		gap: "10px"
 	},
 	icon: {
 		borderRadius: "50%",

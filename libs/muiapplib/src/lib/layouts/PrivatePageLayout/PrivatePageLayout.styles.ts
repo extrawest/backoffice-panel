@@ -12,8 +12,12 @@ export const privatePageLayoutStyles = {
 	},
 	bodyPart: {
 		height: "100vh",
-		// width: "100%",
-		width: "inherit"
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "flex-start",
+		justifyContent: "flex-start",
+		padding: "44px 100px",
+		width: "100%"
 	},
 	profileWrapper: {
 		display: "flex",

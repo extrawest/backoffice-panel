@@ -1,6 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import {
+	collection, CollectionReference, getFirestore,
+} from "firebase/firestore";
+import { getStorage } from "firebase/storage";
+import { ClientTicket } from "../types";
 
 const firebaseConfig = {
 	apiKey: process.env["NX_API_KEY"],
@@ -14,5 +18,11 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);
 const firebaseFirestore = getFirestore(firebaseApp);
+const firebaseStorage = getStorage(firebaseApp);
 
-export { firebaseApp, firebaseFirestore, firebaseAuth };
+const firebaseClientsDBRef = collection(
+	firebaseFirestore,
+	"clients"
+) as CollectionReference<ClientTicket>;
+
+export { firebaseApp, firebaseAuth, firebaseClientsDBRef, firebaseStorage };
