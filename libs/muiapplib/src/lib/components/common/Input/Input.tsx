@@ -1,15 +1,18 @@
-import { FC, useCallback, useState } from "react";
+import { FC, useCallback, useMemo, useState } from "react";
 import { Box, IconButton, TextField } from "@mui/material";
 import { InputProps } from "./Input.types";
 import { getStartAdormentLogo } from "./Input.utils";
 import visiblePasswordLogo from "../../../assets/icons/visiblePasswordLogo.svg";
+import { inputStyles } from "./Input.styles";
 
 export const Input: FC<InputProps> = ({
 	type,
 	icon,
+	uploadedImage,
 	...rest
 }) => {
 	const isPasswordType = type === "password";
+	const commonType = type === "image" ? "file" : "text";
 	const startAdormentLogo = getStartAdormentLogo(icon);
 	const [isPasswordVisible, setIsPasswordVisible] = useState(!isPasswordType);
 
@@ -19,10 +22,14 @@ export const Input: FC<InputProps> = ({
 		},
 		[setIsPasswordVisible],
 	);
+	const memorizedUploadedImageStyles = useMemo(() => inputStyles.image(uploadedImage), [uploadedImage]);
 
 	return (
 		<TextField
-			type={isPasswordVisible ? "text" : "password"}
+			sx={[
+				type === "image" && memorizedUploadedImageStyles
+			]}
+			type={isPasswordVisible ? commonType : "password"}
 			InputProps={{
 				startAdornment: startAdormentLogo && (
 					<Box

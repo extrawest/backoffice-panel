@@ -16,6 +16,7 @@ export const PageLayout: FC<PropsWithChildren<PageLayoutProps>> = ({
 				{children}
 			</Box>
 			<Backdrop
+				sx={pageLayoutStyles.backdrop}
 				open={!!isLoading}
 			>
 				<CircularProgress />

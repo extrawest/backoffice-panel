@@ -6,13 +6,15 @@ import { useDownloadURL } from "react-firebase-hooks/storage";
 import { firebaseStorage } from "@backoffice-panel-app/shared";
 import { clientTableItemStyles } from "./ClientTableItem.styles";
 import { ClientTableItemProps } from "./ClientTableItem.types";
+import { getLastUpdatedTitle } from "./ClientTableItem.utils";
 import profileLogo from "../../../../assets/icons/loginLogo.svg";
 import menuLogo from "../../../../assets/icons/menuLogo.svg";
 
 const ClientTableItem: FC<ClientTableItemProps> = ({
 	client
 }) => {
-	const [img, isLoading] = useDownloadURL(storageRef(firebaseStorage, client.userAvatar));
+	const ref = storageRef(firebaseStorage, client.userAvatar);
+	const [img, isLoading] = useDownloadURL(ref);
 
 	return (
 		<TableRow>
@@ -39,7 +41,7 @@ const ClientTableItem: FC<ClientTableItemProps> = ({
 						align="left"
 						variant="body2"
 					>
-						{`Updated ${client.lastUpdated.toDate().getDay()} day(s) ago`}
+						{getLastUpdatedTitle(client.lastUpdated?.toDate())}
 					</Typography>
 				</Box>
 			</TableCell>
@@ -54,7 +56,7 @@ const ClientTableItem: FC<ClientTableItemProps> = ({
 					align="left"
 					variant="body2"
 				>
-					{`on ${dateFormat(client.userAccountCreationDate.toDate(), "dd.mm.yyyy")}`}
+					{`on ${dateFormat(client.userAccountCreationDate?.toDate(), "dd.mm.yyyy")}`}
 				</Typography>
 			</TableCell>
 			<TableCell>
@@ -62,13 +64,13 @@ const ClientTableItem: FC<ClientTableItemProps> = ({
 					align="left"
 					variant="h4"
 				>
-					{`${dateFormat(client.dateOfCreationTicket.toDate(), "mmm dd, yyyy")}`}
+					{`${dateFormat(client.dateOfCreationTicket?.toDate(), "mmm dd, yyyy")}`}
 				</Typography>
 				<Typography
 					variant="body2"
 					align="left"
 				>
-					{`${dateFormat(client.userAccountCreationDate.toDate(), "h.mm TT")}`}
+					{`${dateFormat(client.userAccountCreationDate?.toDate(), "h.mm TT")}`}
 				</Typography>
 			</TableCell>
 			<TableCell>

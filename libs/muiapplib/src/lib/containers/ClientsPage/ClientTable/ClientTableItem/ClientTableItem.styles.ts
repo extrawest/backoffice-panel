@@ -35,11 +35,11 @@ export const clientTableItemStyles = {
 				});
 			case (ClientTicketPriority.LOW):
 				return ({
-					background: "#FEC400"
+					background: "#29CC97"
 				});
 			case (ClientTicketPriority.NORMAL):
 				return ({
-					background: "#29CC97"
+					background: "#FEC400"
 				});
 			default:
 				return ({});

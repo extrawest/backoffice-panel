@@ -10,3 +10,17 @@ export type ClientTicket = {
 	userName: string;
 	userAvatar: string;
 };
+
+export type ClientTicketAddFormProps = {
+	initialValues: ClientTicketAddFormValues;
+	onSubmit: (values: ClientTicketAddFormValues) => void;
+	isLoading?: boolean;
+};
+
+export type ClientTicketAddFormValues = {
+	ticketTitle: string;
+	fullName: string;
+	dateOfAccount: number | string;
+	priority: ClientTicketPriority;
+	userImage: File | undefined;
+};

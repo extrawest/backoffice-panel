@@ -3,10 +3,12 @@ import { createTheme } from "@mui/material/styles";
 declare module "@mui/material/styles" {
 	interface Palette {
 		neutral: Palette["primary"];
+		additional: Palette["primary"];
 	}
 
 	interface PaletteOptions {
 		neutral: PaletteOptions["primary"];
+		additional: PaletteOptions["primary"];
 	}
 }
 
@@ -24,6 +26,11 @@ export const theme = createTheme({
 		},
 		neutral: {
 			dark: "#252733",
+			main: "#C5C7CD",
+			light: "#9FA2B4"
+		},
+		additional: {
+			dark: "#DDDDDD",
 			main: "#C5C7CD",
 			light: "#9FA2B4"
 		}
@@ -145,6 +152,28 @@ theme.components = {
 					lineHeight: "22px",
 					color: "#5F6769"
 				}
+			},
+
+		}
+	},
+	MuiInputBase: {
+		styleOverrides: {
+			root: {
+				width: "90%",
+				"&.MuiOutlinedInput-root": {
+					borderRadius: "50px"
+				},
+				"& .MuiInputBase-input": {
+					fontFamily: "Open Sans",
+					fontStyle: "normal",
+					fontWeight: 300,
+					fontSize: "18px",
+					lineHeight: "22px",
+					color: "#5F6769",
+					textAlign: "left",
+					display: "flex",
+					alignItems: "center"
+				}
 			}
 		}
 	},
@@ -154,5 +183,5 @@ theme.components = {
 				color: theme.palette.primary.dark
 			}
 		}
-	}
+	},
 };

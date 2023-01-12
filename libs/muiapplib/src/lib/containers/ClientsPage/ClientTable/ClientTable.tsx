@@ -9,7 +9,8 @@ import plusIcon from "../../../assets/icons/plusIcon.svg";
 import filterIcon from "../../../assets/icons/filterIcon.svg";
 
 const ClientTable: FC<ClientTableProps> = ({
-	data
+	data,
+	onClickAddButton
 }) => {
 	return (
 		<>
@@ -23,6 +24,7 @@ const ClientTable: FC<ClientTableProps> = ({
 					<Button
 						variant={"default"}
 						icon={plusIcon}
+						onClick={onClickAddButton}
 					>
 						Add
 					</Button>
