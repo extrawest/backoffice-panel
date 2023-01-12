@@ -1,6 +1,7 @@
+import { AdormentIconType } from "./Input.types";
 import loginLogo from "../../../assets/icons/loginLogo.svg";
 import passwordLogo from "../../../assets/icons/passwordLogo.svg";
-import { AdormentIconType } from "./Input.types";
+import searchLogo from "../../../assets/icons/searchLogo.svg";
 
 export const getStartAdormentLogo = (iconType: AdormentIconType) => {
 	switch (iconType) {
@@ -8,6 +9,8 @@ export const getStartAdormentLogo = (iconType: AdormentIconType) => {
 			return loginLogo;
 		case "password":
 			return passwordLogo;
+		case "search":
+			return searchLogo;
 		default:
 			return undefined;
 	}

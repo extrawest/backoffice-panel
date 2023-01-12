@@ -11,5 +11,6 @@ export const pageLayoutStyles = {
 		alignItems: "center"
 	},
 	backdrop: {
+		zIndex: "10"
 	}
 };

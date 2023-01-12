@@ -1,7 +1,8 @@
+import { DashboardPage } from "@backoffice-panel-app/muiapplib";
 
 const Dashboard = () => {
 	return (
-		<div>Dashboard</div>
+		<DashboardPage />
 	);
 };
 
