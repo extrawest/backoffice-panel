@@ -173,6 +173,20 @@ theme.components = {
 					textAlign: "left",
 					display: "flex",
 					alignItems: "center"
+				},
+				"&.MuiTablePagination-select": {
+					display: "initial",
+					textAlign: "initial",
+					width: "auto"
+				}
+			}
+		}
+	},
+	MuiTablePagination: {
+		styleOverrides: {
+			root: {
+				"& .MuiInputBase-root": {
+					width: "auto"
 				}
 			}
 		}

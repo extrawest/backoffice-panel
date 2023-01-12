@@ -1,5 +1,5 @@
-import { FC, Fragment } from "react";
-import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from "@mui/material";
+import { FC, Fragment, useCallback, useState } from "react";
+import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Toolbar, Typography } from "@mui/material";
 import ClientTableItem from "./ClientTableItem/ClientTableItem";
 import { Button } from "../../../components";
 import { ClientTableProps } from "./ClientTable.types";
@@ -12,6 +12,18 @@ const ClientTable: FC<ClientTableProps> = ({
 	data,
 	onClickAddButton
 }) => {
+	const [page, setPage] = useState(0);
+	const [rowsPerPage, setRowsPerPage] = useState(2);
+
+	const handleChangeRowsPerPage = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+		setRowsPerPage(parseInt(event.target.value, 10));
+		setPage(0);
+	}, [setPage, setRowsPerPage]);
+
+	const handleChangePage = useCallback((event: unknown, newPage: number) => {
+		setPage(newPage);
+	}, []);
+
 	return (
 		<>
 			<Toolbar
@@ -50,15 +62,24 @@ const ClientTable: FC<ClientTableProps> = ({
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{data.map((item, i) => (
+						{data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item, i) => (
 							<Fragment key={i}>
 								<ClientTableItem client={item} />
 							</Fragment>
 						))}
 					</TableBody>
 				</Table>
-
 			</ TableContainer>
+			<TablePagination
+				rowsPerPageOptions={[2, 4, 8]}
+				component="div"
+				count={data.length}
+				rowsPerPage={rowsPerPage}
+				page={page}
+				onPageChange={handleChangePage}
+				onRowsPerPageChange={handleChangeRowsPerPage}
+				colSpan={20}
+			/>
 		</>
 	);
 };
