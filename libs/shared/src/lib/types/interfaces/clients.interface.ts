@@ -1,5 +1,5 @@
 import { Timestamp } from "firebase/firestore";
-import { ClientTicketPriority } from "../enums";
+import { ClientTicketPriority, TaskType } from "../enums";
 
 export type ClientTicket = {
 	dateOfCreationTicket: Timestamp;
@@ -23,4 +23,9 @@ export type ClientTicketAddFormValues = {
 	dateOfAccount: number | string;
 	priority: ClientTicketPriority;
 	userImage: File | undefined;
+};
+
+export type Task = {
+	title: string;
+	type: TaskType;
 };

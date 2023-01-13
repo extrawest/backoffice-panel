@@ -4,7 +4,7 @@ import {
 	collection, CollectionReference, getFirestore,
 } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-import { ClientTicket } from "../types";
+import { ClientTicket, Task } from "../types";
 
 const firebaseConfig = {
 	apiKey: process.env["NX_API_KEY"],
@@ -25,4 +25,9 @@ const firebaseClientsDBRef = collection(
 	"clients"
 ) as CollectionReference<ClientTicket>;
 
-export { firebaseApp, firebaseAuth, firebaseClientsDBRef, firebaseStorage };
+const firebaseTasksDBRef = collection(
+	firebaseFirestore,
+	"tasks"
+) as CollectionReference<Task>;
+
+export { firebaseApp, firebaseAuth, firebaseClientsDBRef, firebaseStorage, firebaseTasksDBRef };

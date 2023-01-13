@@ -3,3 +3,9 @@ export enum ClientTicketPriority {
 	LOW = "LOW",
 	NORMAL = "NORMAL"
 }
+
+export enum TaskType {
+	URGENT = "URGENT",
+	NEW = "NEW",
+	DEFAULT = "DEFAULT"
+}

@@ -18,10 +18,10 @@ export const Button: FC<ButtonProps> = ({
 			disableTouchRipple
 			type={type}
 			sx={[
-				sx as Record<string, unknown>,
 				variant === "default" && buttonStyles.default,
 				variant === "icon" && buttonStyles.icon,
 				variant === "blue" && buttonStyles.blue,
+				sx as Record<string, unknown>,
 			]}
 			{...rest}
 		>
