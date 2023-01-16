@@ -8,11 +8,11 @@ import { Button, Input } from "../../components";
 import { PrivatePageLayout } from "../../layouts";
 import SecondaryBoardTitle from "./SecondaryBoardTitle/SecondaryBoardTitle";
 import SecondaryBoardItem from "./SecondaryBoardItem/SecondaryBoardItem";
+import PrimaryBoardItem from "./PrimaryBoardItem/PrimaryBoardItem";
+import PrimaryBoardChart from "./PrimaryBoardItem/PrimaryBoardChart/PrimaryBoardChart";
 import { dashboardPageStyles } from "./DashboardPage.styles";
 import { getTaskTypeLabel, trendDashboard } from "./DashboardPage.utils";
 import addIcon from "../../assets/icons/plusIcon.svg";
-import PrimaryBoardItem from "./PrimaryBoardItem/PrimaryBoardItem";
-import PrimaryBoardChart from "./PrimaryBoardItem/PrimaryBoardChart/PrimaryBoardChart";
 
 export const DashboardPage = () => {
 	const navigate = useNavigate();

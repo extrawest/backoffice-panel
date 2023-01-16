@@ -19,8 +19,6 @@ export const PrimaryBoardChart = () => {
 		>
 			<ResponsiveContainer >
 				<LineChart
-					width={500}
-					height={300}
 					data={data}
 					margin={{
 						top: 40,

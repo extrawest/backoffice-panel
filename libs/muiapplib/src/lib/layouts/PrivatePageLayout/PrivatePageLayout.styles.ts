@@ -1,14 +1,19 @@
 export const privatePageLayoutStyles = {
 	sideBar: {
-		boxShadow: "0px 4px 34px rgba(96, 94, 94, 0.09)",
 		maxWidth: "460px",
 		width: "460px",
-		height: "100vh",
-		padding: "87px 100px",
-		display: "flex",
-		flexDirection: "column",
-		justifyContent: "space-between",
-		alignItem: "center"
+		zIndex: 1,
+		"& .MuiDrawer-paper": {
+			boxShadow: "0px 4px 34px rgba(96, 94, 94, 0.09)",
+			maxWidth: "460px",
+			width: "460px",
+			height: "100vh",
+			padding: "87px 100px",
+			display: "flex",
+			flexDirection: "column",
+			justifyContent: "space-between",
+			alignItem: "center"
+		}
 	},
 	bodyPart: {
 		height: "100vh",

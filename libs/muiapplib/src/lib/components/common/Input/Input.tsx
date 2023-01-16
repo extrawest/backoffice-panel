@@ -2,8 +2,8 @@ import { FC, useCallback, useMemo, useState } from "react";
 import { Box, IconButton, TextField } from "@mui/material";
 import { InputProps } from "./Input.types";
 import { getStartAdormentLogo } from "./Input.utils";
-import visiblePasswordLogo from "../../../assets/icons/visiblePasswordLogo.svg";
 import { inputStyles } from "./Input.styles";
+import visiblePasswordLogo from "../../../assets/icons/visiblePasswordLogo.svg";
 
 export const Input: FC<InputProps> = ({
 	type,

@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
 import { FC } from "react";
+import { Box } from "@mui/material";
 import { secondaryBoardItemStyles } from "./SecondaryBoardItem.styles";
 import { SecondaryBoardItemProps } from "./SecondaryBoardItem.types";
 

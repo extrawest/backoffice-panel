@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { Box, Modal, Typography } from "@mui/material";
+import { ClientTicketPriority } from "@backoffice-panel-app/shared";
+import { Button, ClientTicketAddForm } from "../../";
 import { ClientPageAddModalProps } from "./ClientPageAddModal.types";
 import { clientPageAddModalStyles } from "./ClientPageAddModal.styles";
-import { Button, ClientTicketAddForm } from "../../";
 import closeIcon from "../../../assets/icons/closeIcon.svg";
-import { ClientTicketPriority } from "@backoffice-panel-app/shared";
 
 export const ClientPageAddModal: FC<ClientPageAddModalProps> = ({
 	open,
