@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { primaryBoardChartStyles } from "./PrimaryBoardChart.styles";
 
 export const PrimaryBoardChart = () => {
 	const data = [
@@ -13,38 +14,46 @@ export const PrimaryBoardChart = () => {
 	];
 
 	return (
-		<Box>
-			<LineChart
-				width={500}
-				height={300}
-				data={data}
-			>
-			<Tooltip/>
-				<Line
-					type="monotone"
-					dataKey="y1"
-					stroke="#8884d8"
-				/>
-				<Line
-					type="monotone"
-					dataKey="y2"
-					stroke="grey"
-				/>
-				<XAxis
-					dataKey="x"
-					minTickGap={1}
-					tickSize={1}
-					type="number"
-				/>
-				<YAxis
-					type="number"
-					orientation="right"
-					minTickGap={10}
-				/>
-				<CartesianGrid
-					vertical={false}
-				/>
-			</LineChart>
+		<Box
+			sx={primaryBoardChartStyles.root}
+		>
+			<ResponsiveContainer >
+				<LineChart
+					width={500}
+					height={300}
+					data={data}
+					margin={{
+						top: 40,
+						left: 40,
+					}}
+				>
+					<Tooltip />
+					<Line
+						type="monotone"
+						dataKey="y1"
+						stroke="#8884d8"
+					/>
+					<Line
+						type="monotone"
+						dataKey="y2"
+						stroke="grey"
+					/>
+					<XAxis
+						dataKey="x"
+						minTickGap={1}
+						tickSize={1}
+						type="number"
+					/>
+					<YAxis
+						type="number"
+						orientation="right"
+						minTickGap={10}
+					/>
+					<CartesianGrid
+						vertical={false}
+					/>
+				</LineChart>
+			</ResponsiveContainer>
 		</Box>
 	);
 };
