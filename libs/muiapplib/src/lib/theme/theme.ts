@@ -118,7 +118,8 @@ export const theme = createTheme({
 			fontSize: "14px",
 			lineHeight: "19px",
 			letterSpacing: "0.2px"
-		}
+		},
+
 	}
 });
 

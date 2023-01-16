@@ -8,7 +8,8 @@ export const clientTableItemStyles = {
 		borderRadius: "50%",
 		width: "44px",
 		height: "44px",
-		marginRight: "24px"
+		marginRight: "24px",
+		backgroundSize: "contain"
 	},
 	priority: {
 		padding: "5px 12px",

@@ -13,7 +13,7 @@ const ClientTable: FC<ClientTableProps> = ({
 	onClickAddButton
 }) => {
 	const [page, setPage] = useState(0);
-	const [rowsPerPage, setRowsPerPage] = useState(2);
+	const [rowsPerPage, setRowsPerPage] = useState(4);
 
 	const handleChangeRowsPerPage = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
 		setRowsPerPage(parseInt(event.target.value, 10));
