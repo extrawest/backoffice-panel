@@ -1,10 +1,9 @@
 import { useState, useCallback } from "react";
 import { Box, Typography } from "@mui/material";
 import { ref as storageRef } from "firebase/storage";
-import { addDoc, serverTimestamp, Timestamp } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useUploadFile } from "react-firebase-hooks/storage";
-import { ClientTicketAddFormValues, firebaseClientsDBRef, firebaseStorage } from "@backoffice-panel-app/shared";
+import { ClientTicketAddFormValues, firebaseClientsDBRef, firebaseStorage, handleAddDataToClientTicketsList } from "@backoffice-panel-app/shared";
 import { ClientPageAddModal, Input } from "../../components";
 import { PrivatePageLayout } from "../../layouts";
 import ClientTable from "./ClientTable/ClientTable";
@@ -27,21 +26,6 @@ export const ClientsPage = () => {
 			setIsOpenAddModal(true);
 		},
 		[setIsOpenAddModal],
-	);
-
-	const handleAddDataToClientTicketsList = useCallback(
-		async (values: ClientTicketAddFormValues, userAvatar?: string) => {
-			addDoc(firebaseClientsDBRef, {
-				priority: values.priority,
-				title: values.ticketTitle,
-				userName: values.fullName,
-				dateOfCreationTicket: serverTimestamp(),
-				lastUpdated: serverTimestamp(),
-				userAccountCreationDate: Timestamp.fromMillis(parseInt(`${values.dateOfAccount}`)),
-				userAvatar: userAvatar ?? " "
-			});
-		},
-		[],
 	);
 
 	const handleSubmitAddForm = useCallback(

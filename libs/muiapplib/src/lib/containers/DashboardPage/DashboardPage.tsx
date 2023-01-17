@@ -3,15 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { limit, query } from "firebase/firestore";
 import { Box, Typography } from "@mui/material";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { AppRouteEnum, firebaseClientsDBRef, firebaseTasksDBRef } from "@backoffice-panel-app/shared";
+import { AppRouteEnum, firebaseClientsDBRef, firebaseTasksDBRef, getDashboardData, PrimaryBoardChart } from "@backoffice-panel-app/shared";
 import { Button, Input } from "../../components";
 import { PrivatePageLayout } from "../../layouts";
 import SecondaryBoardTitle from "./SecondaryBoardTitle/SecondaryBoardTitle";
 import SecondaryBoardItem from "./SecondaryBoardItem/SecondaryBoardItem";
 import PrimaryBoardItem from "./PrimaryBoardItem/PrimaryBoardItem";
-import PrimaryBoardChart from "./PrimaryBoardItem/PrimaryBoardChart/PrimaryBoardChart";
 import { dashboardPageStyles } from "./DashboardPage.styles";
-import { getTaskTypeLabel, trendDashboard } from "./DashboardPage.utils";
+import { getTaskTypeLabel } from "./DashboardPage.utils";
 import addIcon from "../../assets/icons/plusIcon.svg";
 
 export const DashboardPage = () => {
@@ -24,8 +23,7 @@ export const DashboardPage = () => {
 			navigate(AppRouteEnum.CLIENTS);
 		},
 		[navigate],
-	)
-		;
+	);
 
 	return (
 		<PrivatePageLayout
@@ -47,12 +45,17 @@ export const DashboardPage = () => {
 					<Box
 						sx={dashboardPageStyles.primaryBoardChart}
 					>
-						<PrimaryBoardChart/>
+						<Box
+							sx={dashboardPageStyles.primaryBoardChartRoot}
+						>
+							<PrimaryBoardChart />
+
+						</Box>
 					</Box>
 					<Box
 						sx={dashboardPageStyles.primaryBoardDescription}
 					>
-						{trendDashboard.map((item, i) => (
+						{getDashboardData().map((item, i) => (
 							<PrimaryBoardItem
 								key={i}
 								title={item.title}

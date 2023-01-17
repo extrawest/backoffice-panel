@@ -1,7 +1,7 @@
 import { FC, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AppRouteEnum, SideBarLinkProps } from "@backoffice-panel-app/shared";
+import { Image, Typography } from "antd";
 
 export const SidebarLink: FC<SideBarLinkProps> = ({
 	link,
@@ -9,6 +9,7 @@ export const SidebarLink: FC<SideBarLinkProps> = ({
 	icon
 }) => {
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	const handleUseLink = useCallback(
 		() => {
@@ -17,14 +18,26 @@ export const SidebarLink: FC<SideBarLinkProps> = ({
 		[navigate],
 	);
 
+	console.log("navigate", location.pathname);
+
 	return (
 		<Typography
-			variant="h5"
 			onClick={handleUseLink}
+			style={{
+				fontSize: "20px",
+				padding: "0",
+				display: "flex",
+				alignItems: "center",
+				gap: "5px",
+				cursor: "pointer",
+				color: "#505050",
+				fontWeight: location.pathname === link ? 600 : 300
+			}}
+
 		>
-			<Box
-				component="img"
+			<Image
 				src={icon}
+
 			/>
 			{title}
 		</Typography>

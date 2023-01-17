@@ -1,14 +1,13 @@
 import { FC, PropsWithChildren, useCallback, useState } from "react";
 import { Box, Drawer, Typography } from "@mui/material";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
-import { firebaseAuth } from "@backoffice-panel-app/shared";
+import { firebaseAuth, getSidebarLinks } from "@backoffice-panel-app/shared";
 import { Button } from "../../components";
 import SidebarProfile from "./SidebarProfile/SidebarProfile";
 import PageLayout from "../PageLayout/PageLayout";
 import SidebarLink from "./SidebarLink/SidebarLink";
 import { PrivatePageLayoutProps } from "./PrivatePageLayout.types";
 import { privatePageLayoutStyles } from "./PrivatePageLayout.styles";
-import { getSidebarLinks } from "./PrivatePageLayout.utils";
 import exitLogo from "../../assets/icons/signOutLogo.svg";
 import openSide from "../../assets/icons/dashboardLogo.svg";
 
