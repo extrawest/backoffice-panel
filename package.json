@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start:muiapp": "nx serve muiapp --port=4201",
-    "start:antapp": "nx serve antapp --port=4202"
+    "start:antapp": "nx serve antapp --port=4202",
+    "start:tailwindapp": "nx serve tailwindapp --port=4203"
   },
   "private": true,
   "devDependencies": {
@@ -48,6 +49,7 @@
     "url-loader": "^4.1.1"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "@ant-design/icons": "^5.0.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -61,6 +63,8 @@
     "dateformat": "^5.0.3",
     "dayjs": "^1.11.7",
     "firebase": "^9.15.0",
+    "flowbite": "^1.6.2",
+    "flowbite-react": "^0.3.7",
     "formik": "^2.2.9",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -69,6 +73,7 @@
     "react-router-dom": "^6.6.1",
     "recharts": "^2.3.2",
     "regenerator-runtime": "0.13.7",
+    "tailwindcss": "^3.2.4",
     "tslib": "^2.3.0",
     "yup": "^0.32.11"
   }
