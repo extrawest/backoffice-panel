@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@backoffice-panel-app/antapplib": ["libs/antapplib/src/index.ts"],
       "@backoffice-panel-app/muiapplib": ["libs/muiapplib/src/index.ts"],
       "@backoffice-panel-app/shared": ["libs/shared/src/index.ts"]
     },

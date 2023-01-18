@@ -40,5 +40,9 @@ export const dashboardPageStyles = {
 		height: "24px",
 		padding: "6px",
 		minWidth: "initial"
+	},
+	primaryBoardChartRoot: {
+		width: "100%",
+		height: "100%"
 	}
 };

@@ -1,10 +1,9 @@
 import { FC, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppRouteEnum } from "@backoffice-panel-app/shared";
 import { Box, Typography } from "@mui/material";
-import { SideBarLink } from "../PrivatePageLayout.types";
+import { AppRouteEnum, SideBarLinkProps } from "@backoffice-panel-app/shared";
 
-export const SidebarLink: FC<SideBarLink> = ({
+export const SidebarLink: FC<SideBarLinkProps> = ({
 	link,
 	title,
 	icon

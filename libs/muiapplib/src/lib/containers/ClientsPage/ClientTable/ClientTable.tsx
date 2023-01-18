@@ -1,5 +1,16 @@
 import { FC, Fragment, useCallback, useState } from "react";
-import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Toolbar, Typography } from "@mui/material";
+import {
+	Box,
+	Table,
+	TableBody,
+	TableCell,
+	TableContainer,
+	TableHead,
+	TablePagination,
+	TableRow,
+	Toolbar,
+	Typography
+} from "@mui/material";
 import ClientTableItem from "./ClientTableItem/ClientTableItem";
 import { Button } from "../../../components";
 import { ClientTableProps } from "./ClientTable.types";

@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:muiapp": "nx serve muiapp --port=4201"
+    "start:muiapp": "nx serve muiapp --port=4201",
+    "start:antapp": "nx serve antapp --port=4202"
   },
   "private": true,
   "devDependencies": {
@@ -47,6 +48,7 @@
     "url-loader": "^4.1.1"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/mulish": "^4.5.13",
@@ -54,6 +56,7 @@
     "@fontsource/roboto": "^4.5.8",
     "@mui/material": "^5.11.4",
     "@mui/x-date-pickers": "^5.0.13",
+    "antd": "^5.1.5",
     "core-js": "^3.6.5",
     "dateformat": "^5.0.3",
     "dayjs": "^1.11.7",
@@ -62,6 +65,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-firebase-hooks": "^5.1.1",
+    "react-intl": "^6.2.5",
     "react-router-dom": "^6.6.1",
     "recharts": "^2.3.2",
     "regenerator-runtime": "0.13.7",

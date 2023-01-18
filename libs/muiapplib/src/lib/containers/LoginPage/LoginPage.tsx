@@ -1,14 +1,13 @@
+import { useCallback } from "react";
 import { Box, Typography } from "@mui/material";
 import { useSignInWithGoogle, useSignInWithFacebook, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { firebaseAuth, LoginFormValues } from "@backoffice-panel-app/shared";
-import { Button } from "../../components/common";
+import { LoginForm, Button } from "../../components";
 import { PageLayout } from "../../layouts";
 import { loginPageStyles } from "./LoginPage.styles";
 import googleIcon from "../../assets/icons/google.svg";
 import facebookIcon from "../../assets/icons/facebook.svg";
 import appleIcon from "../../assets/icons/apple.svg";
-import { useCallback } from "react";
-import { LoginForm } from "../../components";
 
 export const LoginPage = () => {
 	const [
