@@ -57,6 +57,9 @@ export const DashboardPage = () => {
 							<Row>
 								<Col
 									span={breakpoints.lg ? 18 : 24}
+									style={{
+										minHeight: "300px"
+									}}
 								>
 									<PrimaryBoardChart />
 								</Col>

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Box, CircularProgress, TableCell, TableRow, Typography } from "@mui/material";
-import { ref as storageRef } from "firebase/storage";
 import dateFormat from "dateformat";
+import { ref as storageRef } from "firebase/storage";
 import { useDownloadURL } from "react-firebase-hooks/storage";
 import { firebaseStorage } from "@backoffice-panel-app/shared";
 import { clientTableItemStyles } from "./ClientTableItem.styles";
