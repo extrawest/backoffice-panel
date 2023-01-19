@@ -1,12 +1,9 @@
 import { useCallback } from "react";
 import { useIntl } from "react-intl";
-import { Button, Space } from "antd";
 import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { GoogleOutlined, AppleOutlined, FacebookOutlined } from "@ant-design/icons";
+import { Button } from "primereact/button";
 import { firebaseAuth, LoginFormValues } from "@backoffice-panel-app/shared";
-import Title from "antd/es/typography/Title";
-import Paragraph from "antd/es/typography/Paragraph";
-import { PageLayout } from "../../layouts";
+import { PageLayout } from "../../layout";
 import { LoginForm } from "../../components";
 import { loginPageTexts } from "./LoginPage.texts";
 
@@ -54,65 +51,52 @@ export const LoginPage = () => {
 			error={errorSignInWithFacebook || errorSignInWithGoogle || errorSignInWithEmailAndPassword}
 			isLoading={loadingSignInWithGoogle || loadingSignInWithFacebook || loadingSignInWithEmailAndPassword}
 		>
-			<Space
-				direction="vertical"
-				align="center"
-				size={[0, 20]}
-			>
-				<Title
-					level={1}
-					style={{
-						textAlign: "center"
-					}}
-				>
+			<div className="flex flex-column align-items-center gap-4 login-page">
+				<h3 className="login-page_title">
 					{intl.formatMessage(loginPageTexts.loginPageTitle)}
-
-				</Title>
-				<Paragraph
-					style={{
-						textAlign: "center",
-						color: "#5F6769"
-					}}
-				>
+				</h3>
+				<p className="login-page_subtitle">
 					{intl.formatMessage(loginPageTexts.loginSubtitlePageTitle)}
-				</Paragraph>
-				<Space
-					direction="vertical"
-					align="center"
-					size={15}
-					style={{
-						minWidth: "320px"
+				</p>
+				<LoginForm
+					initialValues={{
+						login: "",
+						password: ""
 					}}
-				>
-					<LoginForm
-						initialValues={{
-							login: "",
-							password: ""
-						}}
-						onSubmit={handleSignInWithEmailAndPassword}
-					/>
-					<Space>
-						<Button
-							shape="circle"
-							size="large"
-							icon={<GoogleOutlined />}
-							onClick={handleSignInWithGoogle}
-						/>
-						<Button
-							shape="circle"
-							size="large"
-							icon={<AppleOutlined />}
-						/>
-						<Button
-							shape="circle"
-							size="large"
-							icon={<FacebookOutlined style={{fontSize: 20}}/>}
-							onClick={handleSignInWithFacebook}
-						/>
-					</Space>
-				</Space>
-
-			</Space>
+					onSubmit={handleSignInWithEmailAndPassword}
+				/>
+				<div className="flex flex-row gap-3">
+					<Button
+						className="p-button-rounded"
+					>
+						<i
+							className="pi pi-apple"
+							style={{ fontSize: "1.4rem" }}
+						>
+						</i>
+					</Button>
+					<Button
+						className="p-button-rounded"
+						onClick={handleSignInWithGoogle}
+					>
+						<i
+							className="pi pi-google"
+							style={{ fontSize: "1.4rem" }}
+						>
+						</i>
+					</Button>
+					<Button
+						className="p-button-rounded"
+						onClick={handleSignInWithFacebook}
+					>
+						<i
+							className="pi pi-facebook"
+							style={{ fontSize: "1.4rem" }}
+						>
+						</i>
+					</Button>
+				</div>
+			</div>
 		</PageLayout>
 	);
 };

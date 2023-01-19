@@ -3,10 +3,9 @@ import { Box, CircularProgress, TableCell, TableRow, Typography } from "@mui/mat
 import dateFormat from "dateformat";
 import { ref as storageRef } from "firebase/storage";
 import { useDownloadURL } from "react-firebase-hooks/storage";
-import { firebaseStorage } from "@backoffice-panel-app/shared";
+import { firebaseStorage, getLastUpdatedTitle } from "@backoffice-panel-app/shared";
 import { clientTableItemStyles } from "./ClientTableItem.styles";
 import { ClientTableItemProps } from "./ClientTableItem.types";
-import { getLastUpdatedTitle } from "./ClientTableItem.utils";
 import profileLogo from "../../../../assets/icons/loginLogo.svg";
 import menuLogo from "../../../../assets/icons/menuLogo.svg";
 
