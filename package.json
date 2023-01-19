@@ -6,7 +6,8 @@
     "start:muiapp": "nx serve muiapp --port=4201",
     "start:antapp": "nx serve antapp --port=4202",
     "start:tailwindapp": "nx serve tailwindapp --port=4203",
-    "start:primeapp": "nx serve primeapp --port=4204"
+    "start:primeapp": "nx serve primeapp --port=4204",
+    "start:semanticapp": "nx serve semanticapp --port=4205"
   },
   "private": true,
   "devDependencies": {
@@ -77,6 +78,8 @@
     "react-router-dom": "^6.6.1",
     "recharts": "^2.3.2",
     "regenerator-runtime": "0.13.7",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4",
     "tailwindcss": "^3.2.4",
     "tslib": "^2.3.0",
     "yup": "^0.32.11"
