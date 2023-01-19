@@ -13,7 +13,9 @@ body, * {
 
 .ui.fluid.container {
 	height: 100vh;
-	margin: 0;
+	margin: 0 !important;
+	margin-left: 0 !important;
+	margin-right:0 !important ;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -62,5 +64,55 @@ body, * {
 		display: flex;
 		justify-content: center;
 		gap: 2vmin;
+	}
+}
+
+.layout-open-sidebar {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+.pusher.dimmed {
+	width: calc(110vw);
+	transform: width .3s;
+}
+.ui.left.overlay.sidebar {
+	padding: 10px;
+	display: flex !important;
+	gap: 30px;
+	h2 {
+		color: #474747;
+		font-family: 'Open Sans';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 26px;
+		text-align: left;
+	}
+	p {
+		font-family: 'Open Sans';
+		font-style: normal;
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 22px;
+		color: #808080;
+		text-align: left;
+	}
+	a {
+		font-family: 'Open Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 26px;
+		color: #505050;
+	}
+	button {
+		font-family: 'Open Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 26px;
+		color: #505050;
 	}
 }
