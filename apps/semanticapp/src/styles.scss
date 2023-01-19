@@ -10,3 +10,57 @@ body, * {
 	bottom: 2.5vmax;
 	left: 2.5vmax;
 }
+
+.ui.fluid.container {
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.ui.fluid.container.login-page {
+	width: 100vw !important;
+	max-width: 500px !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2vmin;
+	h1 {
+		font-family: 'Open Sans';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 56px;
+		line-height: 66px;
+		text-align: center;
+		color: #222831;
+	}
+	p {
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 22px;
+		text-align: center;
+		color: #5F6769;
+	}
+	.login-form {
+		width: 90%;
+		.login-form_field {
+			width: 90%;
+			.ui.input {
+				width: 100%;
+			}
+		}
+		.login-form_error {
+			color: red;
+			text-align: left;
+    		text-indent: 10px;
+		}
+	}
+	.login-page_social-wrapper {
+		display: flex;
+		justify-content: center;
+		gap: 2vmin;
+	}
+}
