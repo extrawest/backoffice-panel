@@ -1,22 +1,35 @@
 import { FC, PropsWithChildren } from "react";
-import { Container, Dimmer, Loader } from "semantic-ui-react";
+import { useIntl } from "react-intl";
+import { Container, Dimmer, Loader, Message } from "semantic-ui-react";
 import { PageLayoutProps } from "./PageLayout.types";
+import { pageLayoutTexts } from "./PageLayout.texts";
 
 export const PageLayout: FC<PropsWithChildren<PageLayoutProps>> = ({
 	children,
 	isLoading,
 	error
 }) => {
+	const intl = useIntl();
 	return (
 		<>
-			<Container>
+			<Container fluid>
 				{children}
 			</Container>
-			<Container>
-				<Dimmer active>
-					<Loader inverted/>
-				</Dimmer>
-			</Container>
+			<Dimmer
+				active={isLoading}
+				page
+			>
+				<Loader inverted />
+			</Dimmer>
+			<Message
+				className="error-message"
+				negative
+				hidden={!error}
+				compact
+			>
+				<Message.Header>{intl.formatMessage(pageLayoutTexts.errorTitleText)}</Message.Header>
+				<Message.Content>{error?.message}</Message.Content>
+			</Message>
 		</>
 	);
 };

@@ -5,3 +5,8 @@ body, * {
 	box-sizing: border-box;
 }
 
+.error-message.ui.message {
+	position: absolute;
+	bottom: 2.5vmax;
+	left: 2.5vmax;
+}
