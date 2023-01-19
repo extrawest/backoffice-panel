@@ -1,15 +1,20 @@
-import { FC } from "react";
+import { FC, useCallback, useRef } from "react";
 import { Field, Form, Formik, FormikValues } from "formik";
+import { Dropdown } from "primereact/dropdown";
+import { Calendar } from "primereact/calendar";
+import { InputText } from "primereact/inputtext";
+import { FileUpload, FileUploadHandlerParam } from "primereact/fileupload";
+import { Button } from "primereact/button";
 import { ClientTicketAddFormProps, ClientTicketPriority } from "@backoffice-panel-app/shared";
 import { addTicketFormSchema } from "./AddTicketForm.schema";
-import { Button, Col, DatePicker, Input, Row, Select, Space, Typography, Upload } from "antd";
-import dayjs from "dayjs";
+import { Toast } from "primereact/Toast";
 
 export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 	initialValues,
 	onSubmit,
 	isLoading
 }) => {
+	const toast = useRef<Toast>(null);
 	const dropdownProps = [
 		{
 			label: ClientTicketPriority.HIGH,
@@ -26,113 +31,103 @@ export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 	];
 	const schema = addTicketFormSchema();
 
-	return (
-		<Formik
-			initialValues={initialValues}
-			onSubmit={onSubmit}
-			validationSchema={schema}
-		>
-			{({ setFieldValue, errors, touched }) => (
-				<Form>
-					<Row
-						justify="space-around"
-						align="stretch"
-						gutter={[0, 40]}
-					>
-						<Col span={8}>
-							<Field name="userImage">
-								{({ field }: FormikValues) => {
-									return (
-										<Upload.Dragger
-											showUploadList={false}
-											listType="picture-card"
-											onChange={(newValue) => setFieldValue("userImage", newValue.file.originFileObj)}
-										>
-											{
-												field.value ? "done" : "Upload user image"
-											}
-										</Upload.Dragger>
-									);
-								}}
-							</Field>
-						</Col>
-						<Col
-							span={12}
-						>
-							<Space
-								direction="vertical"
-								size={[0, 40]}
-								style={{
-									width: "100%"
-								}}
-							>
-								<Field name="priority">
-									{({ field }: FormikValues) => (
-										<Select
-											value={field.value}
-											defaultValue={dropdownProps[0].value}
-											options={dropdownProps}
-											onChange={(value) => setFieldValue("priority", value)}
-											style={{
-												width: "100%",
-											}}
-										/>
-									)}
-								</Field>
-								<Field name="ticketTitle">
-									{({ field }: FormikValues) => (
-										<>
-											<Input
-												{...field}
-												placeholder="Ticket Title"
-											/>
-											{errors.ticketTitle && touched.ticketTitle &&
-												<Typography.Text type="danger">{errors.ticketTitle && touched.ticketTitle && errors.ticketTitle}</Typography.Text>
-											}
-										</>
-									)}
-								</Field>
-								<Field name="fullName">
-									{({ field }: FormikValues) => (
-										<>
-											<Input
-												{...field}
-												placeholder="Full Name"
-											/>
-											{errors.fullName && touched.fullName &&
-												<Typography.Text type="danger">{errors.fullName && touched.fullName && errors.fullName}</Typography.Text>
-											}
-										</>
-									)}
-								</Field>
-								<Field name="dateOfAccount">
-									{({ field }: FormikValues) => (
-										<>
-											<DatePicker
-												name="dateOfAccount"
-												value={field.value ? dayjs(field.value) : undefined}
-												onChange={(_, stringValue) => setFieldValue("dateOfAccount", stringValue)}
-												style={{
-													width: "100%"
-												}}
-											/>
-											{errors.dateOfAccount && touched.dateOfAccount &&
-												<Typography.Text type="danger">{errors.dateOfAccount && touched.dateOfAccount && errors.dateOfAccount}</Typography.Text>
-											}
-										</>
-									)}
-								</Field>
-
-							</Space>
-						</Col>
-						<Col span={22}>
-							<Button htmlType="submit">Add</Button>
-						</Col>
-					</Row>
-				</Form>
-			)
+	const handleUploadFile = useCallback(
+		(
+			e: FileUploadHandlerParam,
+			setFieldValue: (field: string, value: File) => void
+		) => {
+			if (e.files.length > 0) {
+				setFieldValue("userImage", e.files[0]);
+				toast.current?.show({ severity: "success", summary: "Success", detail: "File Uploaded" });
+			} else {
+				toast.current?.show({ severity: "error", summary: "Upload Error", detail: "File wasnt uploaded" });
 			}
-		</Formik >
+
+		},
+		[],
+	);
+
+	return (
+		<>
+			<Toast ref={toast}></Toast>
+			<Formik
+				initialValues={initialValues}
+				onSubmit={onSubmit}
+				validationSchema={schema}
+			>
+				{({ setFieldValue, errors, touched }) => (
+					<Form>
+						<div className="dialog-form_wrapper">
+							<Field name="userImage">
+								{({ field }: FormikValues) => (
+									<FileUpload
+										name="userImage"
+										uploadHandler={(e) => handleUploadFile(e, setFieldValue)}
+										mode="basic"
+										accept="image/*"
+										auto
+										customUpload
+										chooseLabel="Browse user image"
+									/>
+								)}
+							</Field>
+							<Field name="priority">
+								{({ field }: FormikValues) => (
+									<Dropdown
+										{...field}
+										optionLabel="label"
+										optionValue="value"
+										options={dropdownProps}
+										placeholder="Select Priority"
+									/>
+								)}
+							</Field>
+							<Field name="ticketTitle">
+								{({ field }: FormikValues) => (
+									<>
+										<InputText
+											{...field}
+											placeholder="Ticket Title"
+										/>
+										{errors.ticketTitle && touched.ticketTitle &&
+											<p>{errors.ticketTitle && touched.ticketTitle && errors.ticketTitle}</p>
+										}
+									</>
+								)}
+							</Field>
+							<Field name="fullName">
+								{({ field }: FormikValues) => (
+									<>
+										<InputText
+											{...field}
+											placeholder="Full Name"
+										/>
+										{errors.fullName && touched.fullName &&
+											<p>{errors.fullName && touched.fullName && errors.fullName}</p>
+										}
+									</>
+								)}
+							</Field>
+							<Field name="dateOfAccount">
+								{({ field }: FormikValues) => (
+									<>
+										<Calendar
+											{...field}
+											placeholder="Date of user account creation"
+										/>
+										{errors.dateOfAccount && touched.dateOfAccount &&
+											<p>{errors.dateOfAccount && touched.dateOfAccount && errors.dateOfAccount}</p>
+										}
+									</>
+								)}
+							</Field>
+							<Button type="submit">Add</Button>
+						</div>
+					</Form>
+				)
+				}
+			</Formik >
+		</>
 	);
 };
 

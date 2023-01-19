@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Formik, Form, Field, FormikValues } from "formik";
 import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
-import { Button } from "primereact/Button";
+import { Button } from "primereact/button";
 import { LoginFormProps } from "@backoffice-panel-app/shared";
 import { loginFormStyles } from "./LoginForm.styles";
 import { loginFormSchema } from "./LoginForm.schema";

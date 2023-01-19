@@ -34,7 +34,7 @@ const firebaseTasksDBRef = collection(
 ) as CollectionReference<Task>;
 
 const handleAddDataToClientTicketsList = async (
-	values: ClientTicketAddFormValues, userAvatar?: string
+	values: ClientTicketAddFormValues, userAvatar?: string,
 ) => {
 	addDoc(
 		firebaseClientsDBRef,

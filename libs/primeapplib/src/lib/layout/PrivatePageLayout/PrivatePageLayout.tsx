@@ -2,7 +2,7 @@ import { FC, PropsWithChildren, useCallback, useState } from "react";
 import { useIntl } from "react-intl";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
-import { Button } from "primereact/Button";
+import { Button } from "primereact/button";
 import { Avatar } from "primereact/Avatar";
 import { Sidebar } from "primereact/Sidebar";
 import { firebaseAuth, getSidebarLinks } from "@backoffice-panel-app/shared";

@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useIntl } from "react-intl";
 import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { Button } from "primereact/Button";
+import { Button } from "primereact/button";
 import { firebaseAuth, LoginFormValues } from "@backoffice-panel-app/shared";
 import { PageLayout } from "../../layout";
 import { LoginForm } from "../../components";
