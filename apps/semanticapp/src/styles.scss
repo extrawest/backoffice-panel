@@ -66,7 +66,113 @@ body, * {
 		gap: 2vmin;
 	}
 }
-
+.ui.fluid.container.dashboard-page {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 9vmin 5vmin;
+	.dashboard-page_search {
+		width: 100%;
+	}
+	.dashboard-page_title {
+		width: 100%;
+		font-family: 'Open Sans';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 38px;
+		line-height: 48px;
+		color: #222831;
+	}
+	.ui.fluid.container.dashboard-page_content-wrapper {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items:flex-start;
+		.dashboard-page_content-big {
+			width: 100%;
+			display: flex;
+			padding: 0;
+			@media screen and (max-width: 720px) {
+				flex-direction: column;
+			}
+			.dashboard-page_chart {
+				width: 60%;
+				min-height: 300px;
+			}
+			.dashboard-page_chart-text {
+				width: 30%;
+				margin: 0 !important;
+				.dashboard-page_chart-text-wrapper {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					justify-content: space-evenly;
+					.item {
+						display: flex;
+						flex-direction: column;
+						align-items:center;
+						span {
+							&:first-child {
+								font-family: 'Open Sans';
+								font-style: normal;
+								font-weight: 600;
+								font-size: 16px;
+								line-height: 22px;
+								text-align: center;
+								letter-spacing: 0.3px;
+								color: #9FA2B4;
+							}
+							&:last-child {
+								font-family: 'Open Sans';
+								font-style: normal;
+								font-weight: 700;
+								font-size: 24px;
+								line-height: 33px;
+								text-align: center;
+								letter-spacing: 0.3px;
+								color: #252733;
+							}
+						}
+					}
+				}
+			}
+		}
+		.dashboard-page_content-small {
+			width: 45%;
+			@media screen and (max-width: 720px) {
+				width: 100%;
+			}
+			.item {
+				display: flex;
+				justify-content: space-between;
+				h4 {
+					font-family: 'Open Sans';
+					font-style: normal;
+					font-weight: 700;
+					font-size: 19px;
+					line-height: 26px;
+					letter-spacing: 0.4px;
+					color: #252733;
+				}
+			}
+			&:last-child {
+				.item {
+					&:nth-child(2) {
+						padding: 0;
+						input {
+							border: none
+						}
+					}
+				}
+			}
+		}
+	}
+}
 .layout-open-sidebar {
 	position: absolute;
 	top: 20px;
