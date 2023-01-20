@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useIntl } from "react-intl";
 import { limit, query } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
