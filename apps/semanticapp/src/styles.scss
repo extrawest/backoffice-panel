@@ -68,7 +68,7 @@ body, * {
 }
 .ui.fluid.container.client-page {
 	height: 100vh;
-	width: 100vw;
+	width: 100vw !important;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -88,6 +88,11 @@ body, * {
 
 	}
 	.ui.fluid.container.client-page_content-wrapper {
+		width: 100% !important;
+		@media only screen and (max-width: 767px) {
+			position: relative;
+			top: 100px;
+		}
 		.table-header {
 			font-family: 'Open Sans';
 			font-style: normal;
@@ -254,5 +259,52 @@ body, * {
 		font-size: 20px;
 		line-height: 26px;
 		color: #505050;
+	}
+}
+.ticket-add-dialog {
+	padding: 4vmin;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
+	form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items:center;
+		.dialog-form_wrapper {
+			display: flex;
+			flex-direction: column;
+			align-items:center;
+			flex-wrap: wrap;
+			gap: 1vh;
+			width: 100%;
+			margin-left: 5%;
+			p {
+				color: red;
+				text-align: left;
+				width: 100%;
+				max-width: 400px;
+			}
+			.ui.input {
+				width: 100%;
+				max-width: 400px;
+				display: flex !important;
+				justify-content: center;
+			}
+			.ui.selection.dropdown {
+				width: 100%;
+				max-width: 400px;
+			}
+			.p-component {
+				width: 100%;
+			}
+			button {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+				max-width: 400px;
+			}
+		}
 	}
 }

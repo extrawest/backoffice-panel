@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { Dialog } from "primereact/dialog";
 import { AddTicketModalProps } from "./AddTicketModal.types";
 import { AddTicketForm } from "../../forms";
 import { ClientTicketPriority } from "@backoffice-panel-app/shared";
+import { Modal } from "semantic-ui-react";
 
 export const AddTicketModal: FC<AddTicketModalProps> = ({
 	onSubmitAddForm,
@@ -11,9 +11,9 @@ export const AddTicketModal: FC<AddTicketModalProps> = ({
 	open
 }) => {
 	return (
-		<Dialog
-			visible={open}
-			onHide={onClose}
+		<Modal
+			open={open}
+			onClose={onClose}
 		>
 			<div className="ticket-add-dialog">
 				<h1>Add new</h1>
@@ -28,7 +28,7 @@ export const AddTicketModal: FC<AddTicketModalProps> = ({
 					onSubmit={onSubmitAddForm}
 				/>
 			</div>
-		</Dialog>
+		</Modal>
 	);
 };
 

@@ -1,55 +1,35 @@
-import { FC, useCallback, useRef } from "react";
+import { FC } from "react";
 import { Field, Form, Formik, FormikValues } from "formik";
-import { Dropdown } from "primereact/dropdown";
-import { Calendar } from "primereact/calendar";
-import { InputText } from "primereact/inputtext";
-import { FileUpload, FileUploadHandlerParam } from "primereact/fileupload";
-import { Button } from "primereact/button";
 import { ClientTicketAddFormProps, ClientTicketPriority } from "@backoffice-panel-app/shared";
 import { addTicketFormSchema } from "./AddTicketForm.schema";
-import { Toast } from "primereact/Toast";
+import { Button, Dropdown, Input } from "semantic-ui-react";
 
 export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 	initialValues,
 	onSubmit,
 	isLoading
 }) => {
-	const toast = useRef<Toast>(null);
 	const dropdownProps = [
 		{
-			label: ClientTicketPriority.HIGH,
+			text: ClientTicketPriority.HIGH,
+			key: ClientTicketPriority.HIGH,
 			value: ClientTicketPriority.HIGH
 		},
 		{
-			label: ClientTicketPriority.LOW,
+			text: ClientTicketPriority.LOW,
+			key: ClientTicketPriority.LOW,
 			value: ClientTicketPriority.LOW
 		},
 		{
-			label: ClientTicketPriority.NORMAL,
+			text: ClientTicketPriority.NORMAL,
+			key: ClientTicketPriority.NORMAL,
 			value: ClientTicketPriority.NORMAL
 		}
 	];
 	const schema = addTicketFormSchema();
 
-	const handleUploadFile = useCallback(
-		(
-			e: FileUploadHandlerParam,
-			setFieldValue: (field: string, value: File) => void
-		) => {
-			if (e.files.length > 0) {
-				setFieldValue("userImage", e.files[0]);
-				toast.current?.show({ severity: "success", summary: "Success", detail: "File Uploaded" });
-			} else {
-				toast.current?.show({ severity: "error", summary: "Upload Error", detail: "File wasnt uploaded" });
-			}
-
-		},
-		[],
-	);
-
 	return (
 		<>
-			<Toast ref={toast}></Toast>
 			<Formik
 				initialValues={initialValues}
 				onSubmit={onSubmit}
@@ -60,14 +40,13 @@ export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 						<div className="dialog-form_wrapper">
 							<Field name="userImage">
 								{({ field }: FormikValues) => (
-									<FileUpload
+									<Input
+										disabled={isLoading}
 										name="userImage"
-										uploadHandler={(e) => handleUploadFile(e, setFieldValue)}
-										mode="basic"
+										onChange={(e) => setFieldValue("userImage", e.target.files ? e.target.files[0] : undefined)}
 										accept="image/*"
-										auto
-										customUpload
-										chooseLabel="Browse user image"
+										type="file"
+										label="Browse user image"
 									/>
 								)}
 							</Field>
@@ -75,18 +54,22 @@ export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 								{({ field }: FormikValues) => (
 									<Dropdown
 										{...field}
-										optionLabel="label"
-										optionValue="value"
+										disabled={isLoading}
+										selection
+										onBlur={() => null}
 										options={dropdownProps}
 										placeholder="Select Priority"
+										onChange={(e, data) => setFieldValue("priority", data.value)}
+
 									/>
 								)}
 							</Field>
 							<Field name="ticketTitle">
 								{({ field }: FormikValues) => (
 									<>
-										<InputText
+										<Input
 											{...field}
+											disabled={isLoading}
 											placeholder="Ticket Title"
 										/>
 										{errors.ticketTitle && touched.ticketTitle &&
@@ -98,8 +81,9 @@ export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 							<Field name="fullName">
 								{({ field }: FormikValues) => (
 									<>
-										<InputText
+										<Input
 											{...field}
+											disabled={isLoading}
 											placeholder="Full Name"
 										/>
 										{errors.fullName && touched.fullName &&
@@ -111,8 +95,10 @@ export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 							<Field name="dateOfAccount">
 								{({ field }: FormikValues) => (
 									<>
-										<Calendar
+										<Input
 											{...field}
+											type="date"
+											disabled={isLoading}
 											placeholder="Date of user account creation"
 										/>
 										{errors.dateOfAccount && touched.dateOfAccount &&

@@ -1,11 +1,10 @@
-import { MouseEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useIntl } from "react-intl";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { useDownloadURL, useUploadFile } from "react-firebase-hooks/storage";
+import { useUploadFile } from "react-firebase-hooks/storage";
 import { ref as storageRef } from "firebase/storage";
 import dayjs from "dayjs";
 import {
-	ClientTicket,
 	ClientTicketAddFormValues,
 	ClientTicketPriority,
 	firebaseClientsDBRef,
@@ -16,7 +15,7 @@ import {
 import { PrivatePageLayout } from "../../layout";
 import { clientsPageTexts } from "./ClientsPage.texts";
 import { AddTicketModal } from "../../components";
-import { Button, Container, Icon, Pagination, PaginationProps, Search, Tab, Table } from "semantic-ui-react";
+import { Button, Container, Icon, Pagination, PaginationProps, Search, Table } from "semantic-ui-react";
 import UserAvatar from "./UserAvatar/UserAvatar";
 
 export const ClientsPage = () => {
@@ -50,7 +49,6 @@ export const ClientsPage = () => {
 
 	const handleSubmitAddForm = useCallback(
 		async (values: ClientTicketAddFormValues) => {
-			console.log("values", dayjs(values.dateOfAccount).format("YYYY-MM-DD"));
 			let userAvatarRef;
 			if (values.userImage) {
 				const avatarImageName = `clients/${values.fullName}_image.jpg`;
@@ -109,12 +107,15 @@ export const ClientsPage = () => {
 					className="client-page_content-wrapper"
 					fluid
 				>
-					<Table striped>
+					<Table
+						striped
+						unstackable
+					>
 						<Table.Header>
 							<Table.Row >
 								<Table.HeaderCell
 									textAlign="left"
-									colspan="4"
+									colSpan="1"
 									className="table-header"
 								>
 									{intl.formatMessage(clientsPageTexts.ticketTableTitleText)}
@@ -122,7 +123,7 @@ export const ClientsPage = () => {
 								<Table.HeaderCell
 									collapsing
 									textAlign="right"
-									colspan="1"
+									colSpan="4"
 									className="table-header"
 								>
 									<Button
@@ -188,7 +189,7 @@ export const ClientsPage = () => {
 													color: "#C5C7CD",
 												}}
 											>
-												{getLastUpdatedTitle(item.dateOfCreationTicket.toDate())}
+												{getLastUpdatedTitle(item.dateOfCreationTicket?.toDate())}
 
 											</span>
 										</span>
@@ -225,12 +226,11 @@ export const ClientsPage = () => {
 						<Table.Footer>
 							<Table.Row>
 								<Table.HeaderCell
-									colspan="5"
+									colSpan="5"
 									textAlign="right"
 								>
 									<Pagination
 										boundaryRange={0}
-										defaultActivePage={1}
 										onPageChange={handlePaginationChange}
 										siblingRange={1}
 										activePage={currentPage}
@@ -242,6 +242,11 @@ export const ClientsPage = () => {
 					</Table>
 				</Container>
 			</Container>
+			<AddTicketModal
+				open={isOpenAddModal}
+				onClose={handleCloseModal}
+				onSubmitAddForm={handleSubmitAddForm}
+			/>
 		</PrivatePageLayout >
 	);
 };
