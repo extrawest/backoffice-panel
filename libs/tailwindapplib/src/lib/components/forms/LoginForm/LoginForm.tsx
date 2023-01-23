@@ -3,7 +3,7 @@ import { Formik, Form, Field, FormikValues } from "formik";
 import { LoginFormProps } from "@backoffice-panel-app/shared";
 import { loginFormStyles } from "./LoginForm.styles";
 import { loginFormSchema } from "./LoginForm.schema";
-import { Button, FormInput } from "semantic-ui-react";
+import { Button, FormInput } from "../../common";
 
 export const LoginForm: FC<LoginFormProps> = ({
 	onSubmit,

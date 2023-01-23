@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { AlertProps } from "./Alert.types";
 
 export const Alert: FC<AlertProps> = ({
@@ -6,18 +6,40 @@ export const Alert: FC<AlertProps> = ({
 	title,
 	subtitle
 }) => {
+	const [isOpenNow, setIsOpenNow] = useState(false);
+
+	useEffect(() => {
+		if (!isOpenNow) return;
+		const timeout = setTimeout(() => {
+			setIsOpenNow(false);
+		}, 3000);
+
+		return () => {
+			clearTimeout(timeout);
+		};
+	}, [isOpenNow]);
+
+	useEffect(() => {
+		if (isOpen) setIsOpenNow(true);
+	}, [isOpen]);
+
 	return (
-		<div
-			role="alert"
-			className="alert"
-		>
-			<div className="alert-title">
-				Danger
-			</div>
-			<div className="alert-subtitle">
-				<p>Something not ideal might be happening.</p>
-			</div>
-		</div>
+		<>
+			{isOpenNow && (
+				<div
+					role="alert"
+					className="alert"
+				>
+					<div className="alert-title">
+						{title}
+					</div>
+					<div className="alert-subtitle">
+						<p>{subtitle}</p>
+					</div>
+				</div>
+			)}
+		</>
+
 	);
 };
 
