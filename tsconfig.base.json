@@ -18,6 +18,9 @@
       "@backoffice-panel-app/antapplib": ["libs/antapplib/src/index.ts"],
       "@backoffice-panel-app/muiapplib": ["libs/muiapplib/src/index.ts"],
       "@backoffice-panel-app/primeapplib": ["libs/primeapplib/src/index.ts"],
+      "@backoffice-panel-app/semanticapplib": [
+        "libs/semanticapplib/src/index.ts"
+      ],
       "@backoffice-panel-app/shared": ["libs/shared/src/index.ts"],
       "@backoffice-panel-app/tailwindapplib": [
         "libs/tailwindapplib/src/index.ts"
