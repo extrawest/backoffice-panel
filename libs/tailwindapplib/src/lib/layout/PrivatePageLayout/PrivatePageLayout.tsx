@@ -43,7 +43,7 @@ export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = 
 					<div
 						className="private-layout"
 						style={{
-							transform: `translateX(${isOpenDrawer ? "-100%" : "0"})`,
+							transform: `translateX(${isOpenDrawer ? "0" : "-100%"})`,
 							transition: "transform .3s"
 						}}
 					>
