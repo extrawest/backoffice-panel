@@ -2,8 +2,51 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
 body, * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+// .but {
+// 	@apply bg-red-500;
+// }
+
+.loader {
+	@apply w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600;
+}
+.alert {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	.alert-title {
+		@apply bg-red-500 text-white font-bold rounded-t px-4 py-2
+	}
+	.alert-subtitle {
+		@apply border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700
+	}
+}
+
+.layout-wrapper {
+	z-index: 1;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.layout-backdrop {
+	background: rgba(128, 128, 128, 0.781);
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
