@@ -105,7 +105,6 @@ export const DashboardPage = () => {
 									}}
 								>
 									{item.type}
-
 								</span>
 							</Menu.Item>
 						))}

@@ -37,7 +37,9 @@ export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = 
 		>
 			{!isLoadingUser && !errorUser && user &&
 				<>
-					{children}
+					<div className="content-wrapper">
+						{children}
+					</div>
 					<div
 						className="private-layout"
 						style={{
@@ -69,7 +71,10 @@ export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = 
 								))}
 							</ul>
 						</div>
-						<Button>
+						<Button
+							onClick={signOut}
+							className="sidebar-button"
+						>
 							<img
 								src={signLogo}
 								alt="signLogo"
