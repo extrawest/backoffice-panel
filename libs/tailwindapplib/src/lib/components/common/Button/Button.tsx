@@ -4,11 +4,12 @@ import { ButtonProps } from "./Button.types";
 export const Button: FC<PropsWithChildren<ButtonProps>> = ({
 	onClick,
 	children,
-	type
+	type,
+	className
 }) => {
 	return (
 		<button
-			className="button-default"
+			className={`button-default ${className}`}
 			type={type}
 			onClick={onClick}
 		>
