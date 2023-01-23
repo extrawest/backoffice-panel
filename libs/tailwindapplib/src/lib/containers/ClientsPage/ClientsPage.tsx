@@ -102,7 +102,7 @@ export const ClientsPage = () => {
 						name=""
 					/>
 				</div>
-				<h3>{intl.formatMessage(clientsPageTexts.ticketTableTitleText)}</h3>
+				<h3>{intl.formatMessage(clientsPageTexts.clientPageTitleText)}</h3>
 				<div className="client-page_table-wrapper">
 					<div
 						className="table"
@@ -124,38 +124,109 @@ export const ClientsPage = () => {
 									borderRadius: "8px"
 								}}
 							>
-								<th
-									style={{
-										padding: "10px",
-									}}
-								>
-									Ticket details
+								<tr>
+									<th colSpan={5}>
+										<div
+											style={{
+												display: "flex",
+												width: "100%",
+												justifyContent: "space-between",
+												padding: "10px"
+											}}
+										>
+											<h4
+												style={{
+													fontFamily: "Open Sans",
+													fontStyle: "normal",
+													fontWeight: "700",
+													fontSize: "19px",
+													lineHeight: "26px",
+													letterSpacing: "0.4px",
+													color: "#252733",
+												}}
+											>
+												{intl.formatMessage(clientsPageTexts.ticketTableTitleText)}
 
-								</th>
-								<th
-									style={{
-										padding: "10px",
-									}}
-								>
-									Customer name
+											</h4>
+											<span
+												style={{
+													display: "flex",
+													justifyContent: "space-evenly",
+													gap: "10px"
+												}}
+											>
+												<button
+													onClick={handleOpenModal}
+													style={{
+														fontFamily: "Open Sans",
+														fontStyle: "normal",
+														fontWeight: "700",
+														fontSize: "19px",
+														lineHeight: "26px",
+														letterSpacing: "0.4px",
+														color: "#252733",
+														border: "1px black solid",
+														padding: "5px",
+														borderRadius: "10px"
+													}}
+												>
+													{intl.formatMessage(clientsPageTexts.addButtonText)}
 
-								</th>
-								<th
-									style={{
-										padding: "10px",
-									}}
-								>
-									Date
+												</button>
+												<button
+													style={{
+														fontFamily: "Open Sans",
+														fontStyle: "normal",
+														fontWeight: "700",
+														fontSize: "19px",
+														lineHeight: "26px",
+														letterSpacing: "0.4px",
+														color: "#252733",
+														border: "1px black solid",
+														padding: "5px",
+														borderRadius: "10px"
+													}}
+												>
+													{intl.formatMessage(clientsPageTexts.filterButtonText)}
+												</button>
+											</span>
+										</div>
+									</th>
+								</tr>
+								<tr>
+									<th
+										style={{
+											padding: "10px",
+										}}
+									>
+										Ticket details
 
-								</th>
-								<th
-									style={{
-										padding: "10px",
-									}}
-								>
-									Priority
+									</th>
+									<th
+										style={{
+											padding: "10px",
+										}}
+									>
+										Customer name
 
-								</th>
+									</th>
+									<th
+										style={{
+											padding: "10px",
+										}}
+									>
+										Date
+
+									</th>
+									<th
+										style={{
+											padding: "10px",
+										}}
+									>
+										Priority
+
+									</th>
+								</tr>
 							</thead>
 							<tbody >
 								{clientsData && clientsData.slice((currentPage - 1) * 4, currentPage * 4).map((item, i) => (
@@ -306,6 +377,11 @@ export const ClientsPage = () => {
 					</div>
 				</div>
 			</div>
+			<AddTicketModal
+				open={isOpenAddModal}
+				onClose={handleCloseModal}
+				onSubmitAddForm={handleSubmitAddForm}
+			/>
 		</PrivatePageLayout >
 	);
 };
