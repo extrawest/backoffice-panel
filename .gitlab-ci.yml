@@ -13,8 +13,6 @@ stages:
 #     - npm run lint:all
 
 build_dev:
-  # only:
-  #   - development
   except:
     - main
   stage: build
@@ -45,6 +43,10 @@ deploy_dev:
   before_script:
     - npm i -g firebase-tools
   script:
-    - firebase deploy
+    - firebase deploy --only hosting:muiapp --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting:antapp --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting:primeapp --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting:semanticapp --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting:tailwindapp --token $FIREBASE_TOKEN
   environment:
     name: 'Development'
