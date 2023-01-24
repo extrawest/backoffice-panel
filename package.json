@@ -7,7 +7,8 @@
     "start:antapp": "nx serve antapp --port=4202",
     "start:tailwindapp": "nx serve tailwindapp --port=4203",
     "start:primeapp": "nx serve primeapp --port=4204",
-    "start:semanticapp": "nx serve semanticapp --port=4205"
+    "start:semanticapp": "nx serve semanticapp --port=4205",
+    "run:many": "nx run-many --target=build --projects=muiapp,antapp,tailwindapp,primeapp,semanticapp --prod"
   },
   "private": true,
   "devDependencies": {

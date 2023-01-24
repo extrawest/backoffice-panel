@@ -1,0 +1,76 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": [
+    {
+      "target": "muiapp",
+      "public": "dist/apps/muiapp",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [{
+        "source": "**",
+        "destination": "/index.html"
+      }]
+    },
+    {
+      "target": "antapp",
+      "public": "dist/apps/antapp",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [{
+        "source": "**",
+        "destination": "/index.html"
+      }]
+    },
+    {
+      "target": "primeapp",
+      "public": "dist/apps/primeapp",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [{
+        "source": "**",
+        "destination": "/index.html"
+      }]
+    },
+    {
+      "target": "semanticapp",
+      "public": "dist/apps/semanticapp",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [{
+        "source": "**",
+        "destination": "/index.html"
+      }]
+    },
+    {
+      "target": "tailwindapp",
+      "public": "dist/apps/tailwindapp",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [{
+        "source": "**",
+        "destination": "/index.html"
+      }]
+    }
+  ],
+  "storage": {
+    "rules": "storage.rules"
+  }
+}
