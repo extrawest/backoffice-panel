@@ -6,21 +6,22 @@
     "backofficepanelapp": {
       "hosting": {
         "muiapp": [
-          "backoffice-muiapp"
+          "muiapp-8b700"
         ],
         "antapp": [
-          "backoffice-antapp"
-        ],
-        "semanticapp": [
-          "backoffice-semanticapp"
+          "antapp"
         ],
         "primeapp": [
-          "backoffice-primeapp"
+          "primeapp-d8a6a"
+        ],
+        "semanticapp": [
+          "semanticapp"
         ],
         "tailwindapp": [
-          "backoffice-tailwindapp"
+          "tailwind-a2011"
         ]
       }
     }
-  }
+  },
+  "etags": {}
 }
