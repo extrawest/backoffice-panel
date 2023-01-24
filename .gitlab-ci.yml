@@ -13,8 +13,8 @@ stages:
 #     - npm run lint:all
 
 build_dev:
-  only:
-    - development
+  # only:
+  #   - development
   except:
     - main
   stage: build
