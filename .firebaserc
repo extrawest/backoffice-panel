@@ -1,0 +1,26 @@
+{
+  "projects": {
+    "default": "backofficepanelapp"
+  },
+  "targets": {
+    "backofficepanelapp": {
+      "hosting": {
+        "muiapp": [
+          "backoffice-muiapp"
+        ],
+        "antapp": [
+          "backoffice-antapp"
+        ],
+        "semanticapp": [
+          "backoffice-semanticapp"
+        ],
+        "primeapp": [
+          "backoffice-primeapp"
+        ],
+        "tailwindapp": [
+          "backoffice-tailwindapp"
+        ]
+      }
+    }
+  }
+}
