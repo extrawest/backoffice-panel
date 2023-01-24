@@ -43,7 +43,7 @@ deploy_dev:
   before_script:
     - npm i -g firebase-tools
   script:
-    - firebase login:ci
+    - firebase login:ci --interactive
     - firebase deploy --only hosting:muiapp
     - firebase deploy --only hosting:antapp
     - firebase deploy --only hosting:primeapp
