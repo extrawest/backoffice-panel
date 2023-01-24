@@ -5,13 +5,14 @@ export const FormInput: FC<FormInputProps> = ({
 	placeholder,
 	onChange,
 	value,
-	name
+	name,
+	isDate
 }) => {
 	return (
 		<div>
 			<input
 				name={name}
-				type="text"
+				type={isDate ? "date" : "text"}
 				value={value}
 				onChange={onChange}
 				className="input-field"

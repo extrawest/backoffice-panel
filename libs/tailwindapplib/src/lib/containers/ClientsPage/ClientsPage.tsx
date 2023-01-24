@@ -91,72 +91,52 @@ export const ClientsPage = () => {
 	};
 
 	return (
-		<PrivatePageLayout
-			isLoading={isLoadingClientsData || uploading}
-			error={clientsDataError || fileUploadError}
-		>
-			<div className="client-page">
-				<div className="input-wrapper">
-					<FormInput
-						placeholder="Search"
-						name=""
-					/>
-				</div>
-				<h3>{intl.formatMessage(clientsPageTexts.clientPageTitleText)}</h3>
-				<div className="client-page_table-wrapper">
-					<div
-						className="table"
-						style={{
-							width: "100%",
-							border: "1px solid #DFE0EB",
-							borderRadius: "8px",
-						}}
-					>
-						<table
+		<>
+
+			<PrivatePageLayout
+				isLoading={isLoadingClientsData || uploading || isOpenAddModal}
+				error={clientsDataError || fileUploadError}
+			>
+				<div className="client-page">
+					<div className="input-wrapper">
+						<FormInput
+							placeholder="Search"
+							name=""
+						/>
+					</div>
+					<h3>{intl.formatMessage(clientsPageTexts.clientPageTitleText)}</h3>
+					<div className="client-page_table-wrapper">
+						<div
+							className="table"
 							style={{
 								width: "100%",
+								border: "1px solid #DFE0EB",
+								borderRadius: "8px",
 							}}
 						>
-							<thead
+							<table
 								style={{
 									width: "100%",
-									borderBottom: "1px solid #DFE0EB",
-									borderRadius: "8px"
 								}}
 							>
-								<tr>
-									<th colSpan={5}>
-										<div
-											style={{
-												display: "flex",
-												width: "100%",
-												justifyContent: "space-between",
-												padding: "10px"
-											}}
-										>
-											<h4
-												style={{
-													fontFamily: "Open Sans",
-													fontStyle: "normal",
-													fontWeight: "700",
-													fontSize: "19px",
-													lineHeight: "26px",
-													letterSpacing: "0.4px",
-													color: "#252733",
-												}}
-											>
-												{intl.formatMessage(clientsPageTexts.ticketTableTitleText)}
-
-											</h4>
-											<span
+								<thead
+									style={{
+										width: "100%",
+										borderBottom: "1px solid #DFE0EB",
+										borderRadius: "8px"
+									}}
+								>
+									<tr>
+										<th colSpan={5}>
+											<div
 												style={{
 													display: "flex",
-													justifyContent: "space-evenly",
-													gap: "10px"
+													width: "100%",
+													justifyContent: "space-between",
+													padding: "10px"
 												}}
 											>
-												<button
-													onClick={handleOpenModal}
+												<h4
 													style={{
 														fontFamily: "Open Sans",
 														fontStyle: "normal",
@@ -165,224 +145,248 @@ export const ClientsPage = () => {
 														lineHeight: "26px",
 														letterSpacing: "0.4px",
 														color: "#252733",
-														border: "1px black solid",
-														padding: "5px",
-														borderRadius: "10px"
 													}}
 												>
-													{intl.formatMessage(clientsPageTexts.addButtonText)}
+													{intl.formatMessage(clientsPageTexts.ticketTableTitleText)}
 
-												</button>
-												<button
+												</h4>
+												<span
 													style={{
-														fontFamily: "Open Sans",
-														fontStyle: "normal",
-														fontWeight: "700",
-														fontSize: "19px",
-														lineHeight: "26px",
-														letterSpacing: "0.4px",
-														color: "#252733",
-														border: "1px black solid",
-														padding: "5px",
-														borderRadius: "10px"
+														display: "flex",
+														justifyContent: "space-evenly",
+														gap: "10px"
 													}}
 												>
-													{intl.formatMessage(clientsPageTexts.filterButtonText)}
-												</button>
-											</span>
-										</div>
-									</th>
-								</tr>
-								<tr>
-									<th
-										style={{
-											padding: "10px",
-										}}
-									>
-										Ticket details
+													<button
+														onClick={handleOpenModal}
+														style={{
+															fontFamily: "Open Sans",
+															fontStyle: "normal",
+															fontWeight: "700",
+															fontSize: "19px",
+															lineHeight: "26px",
+															letterSpacing: "0.4px",
+															color: "#252733",
+															border: "1px black solid",
+															padding: "5px",
+															borderRadius: "10px"
+														}}
+													>
+														{intl.formatMessage(clientsPageTexts.addButtonText)}
 
-									</th>
-									<th
-										style={{
-											padding: "10px",
-										}}
-									>
-										Customer name
-
-									</th>
-									<th
-										style={{
-											padding: "10px",
-										}}
-									>
-										Date
-
-									</th>
-									<th
-										style={{
-											padding: "10px",
-										}}
-									>
-										Priority
-
-									</th>
-								</tr>
-							</thead>
-							<tbody >
-								{clientsData && clientsData.slice((currentPage - 1) * 4, currentPage * 4).map((item, i) => (
-									<tr
-										key={i}
-									>
-										<td
+													</button>
+													<button
+														style={{
+															fontFamily: "Open Sans",
+															fontStyle: "normal",
+															fontWeight: "700",
+															fontSize: "19px",
+															lineHeight: "26px",
+															letterSpacing: "0.4px",
+															color: "#252733",
+															border: "1px black solid",
+															padding: "5px",
+															borderRadius: "10px"
+														}}
+													>
+														{intl.formatMessage(clientsPageTexts.filterButtonText)}
+													</button>
+												</span>
+											</div>
+										</th>
+									</tr>
+									<tr>
+										<th
 											style={{
-												display: "flex",
-												flexWrap: "wrap",
-												gap: "10px",
-												padding: "10px"
+												padding: "10px",
 											}}
 										>
-											<UserAvatar firebaseUrl={item.userAvatar} />
-											<span
+											Ticket details
+
+										</th>
+										<th
+											style={{
+												padding: "10px",
+											}}
+										>
+											Customer name
+
+										</th>
+										<th
+											style={{
+												padding: "10px",
+											}}
+										>
+											Date
+
+										</th>
+										<th
+											style={{
+												padding: "10px",
+											}}
+										>
+											Priority
+
+										</th>
+									</tr>
+								</thead>
+								<tbody >
+									{clientsData && clientsData.slice((currentPage - 1) * 4, currentPage * 4).map((item, i) => (
+										<tr
+											key={i}
+										>
+											<td
 												style={{
 													display: "flex",
 													flexWrap: "wrap",
-													flexDirection: "column",
-													justifyContent: "space-evenly"
+													gap: "10px",
+													padding: "10px"
+												}}
+											>
+												<UserAvatar firebaseUrl={item.userAvatar} />
+												<span
+													style={{
+														display: "flex",
+														flexWrap: "wrap",
+														flexDirection: "column",
+														justifyContent: "space-evenly"
+													}}
+												>
+													<span
+														style={{
+															fontFamily: "Open Sans",
+															fontStyle: "normal",
+															fontWeight: 600,
+															fontSize: "14px",
+															lineHeight: "20px",
+															color: "#252733",
+														}}
+													>
+														{item.title}
+
+													</span>
+													<span
+														style={{
+															fontFamily: "Open Sans",
+															fontStyle: "normal",
+															fontWeight: 600,
+															fontSize: "12px",
+															lineHeight: "16px",
+															color: "#C5C7CD",
+														}}
+													>
+														{getLastUpdatedTitle(item.dateOfCreationTicket?.toDate())}
+
+													</span>
+												</span>
+
+											</td>
+											<td
+												style={{
+													padding: "10px"
+												}}
+											>
+												{item.userName}
+											</td>
+											<td
+												style={{
+													padding: "10px"
+												}}
+											>
+												{dayjs(item.lastUpdated.toDate()).format("DD/MM/YYYY")}
+											</td>
+											<td
+												style={{
+													padding: "10px",
+													display: "flex"
 												}}
 											>
 												<span
 													style={{
-														fontFamily: "Open Sans",
-														fontStyle: "normal",
-														fontWeight: 600,
-														fontSize: "14px",
-														lineHeight: "20px",
-														color: "#252733",
+														background: getLabelColor(item.priority).background,
+														borderRadius: "10px",
+														textAlign: "center",
+														padding: "5px 10px",
+														color: "white",
+														width: "min-content"
 													}}
 												>
-													{item.title}
-
+													{item.priority}
 												</span>
-												<span
-													style={{
-														fontFamily: "Open Sans",
-														fontStyle: "normal",
-														fontWeight: 600,
-														fontSize: "12px",
-														lineHeight: "16px",
-														color: "#C5C7CD",
-													}}
-												>
-													{getLastUpdatedTitle(item.dateOfCreationTicket?.toDate())}
-
-												</span>
-											</span>
-
-										</td>
-										<td
-											style={{
-												padding: "10px"
-											}}
-										>
-											{item.userName}
-										</td>
-										<td
-											style={{
-												padding: "10px"
-											}}
-										>
-											{dayjs(item.lastUpdated.toDate()).format("DD/MM/YYYY")}
-										</td>
-										<td
-											style={{
-												padding: "10px",
-												display: "flex"
-											}}
-										>
-											<span
+											</td>
+											<td
 												style={{
-													background: getLabelColor(item.priority).background,
-													borderRadius: "10px",
-													textAlign: "center",
-													padding: "5px 10px",
-													color: "white",
-													width: "min-content"
+													padding: "10px"
 												}}
 											>
-												{item.priority}
-											</span>
-										</td>
-										<td
-											style={{
-												padding: "10px"
-											}}
-										>
-											<img
-												style={{
-													cursor: "pointer"
-												}}
-												src={settingLogo}
-												alt="setting"
-											/>
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-						<nav
-							style={{
-								borderTop: "1px solid #DFE0EB",
-								padding: "10px 2vw",
-								display: "flex",
-								justifyContent: "flex-end"
-							}}
-						>
-							<div className="buttonWrapper">
-								<button
-									onClick={() => handleChangePage("prev")}
-									style={{
-										background: "#9FA2B4",
-										padding: "5px 10px",
-										borderRadius: "30px 0px 0px 30px",
-										fontFamily: "Mulish",
-										fontStyle: "normal",
-										fontWeight: "600",
-										fontSize: "14px",
-										lineHeight: "20px",
-										color: "#252733",
-										border: "1px solid black"
-									}}
-								>
-									Prev
-								</button>
-								<button
-									onClick={() => handleChangePage("next")}
-									style={{
-										background: "#9FA2B4",
-										padding: "5px 10px",
-										borderRadius: "0px 30px 30px 0px",
-										fontFamily: "Mulish",
-										fontStyle: "normal",
-										fontWeight: "600",
-										fontSize: "14px",
-										lineHeight: "20px",
-										color: "#252733",
-										border: "1px solid black"
-									}}
-								>
-									Next
-								</button>
-							</div>
-						</nav>
+												<img
+													style={{
+														cursor: "pointer"
+													}}
+													src={settingLogo}
+													alt="setting"
+												/>
+											</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+							<nav
+								style={{
+									borderTop: "1px solid #DFE0EB",
+									padding: "10px 2vw",
+									display: "flex",
+									justifyContent: "flex-end"
+								}}
+							>
+								<div className="buttonWrapper">
+									<button
+										onClick={() => handleChangePage("prev")}
+										style={{
+											background: "#9FA2B4",
+											padding: "5px 10px",
+											borderRadius: "30px 0px 0px 30px",
+											fontFamily: "Mulish",
+											fontStyle: "normal",
+											fontWeight: "600",
+											fontSize: "14px",
+											lineHeight: "20px",
+											color: "#252733",
+											border: "1px solid black"
+										}}
+									>
+										Prev
+									</button>
+									<button
+										onClick={() => handleChangePage("next")}
+										style={{
+											background: "#9FA2B4",
+											padding: "5px 10px",
+											borderRadius: "0px 30px 30px 0px",
+											fontFamily: "Mulish",
+											fontStyle: "normal",
+											fontWeight: "600",
+											fontSize: "14px",
+											lineHeight: "20px",
+											color: "#252733",
+											border: "1px solid black"
+										}}
+									>
+										Next
+									</button>
+								</div>
+							</nav>
+						</div>
 					</div>
 				</div>
-			</div>
+
+			</PrivatePageLayout >
 			<AddTicketModal
 				open={isOpenAddModal}
 				onClose={handleCloseModal}
 				onSubmitAddForm={handleSubmitAddForm}
 			/>
-		</PrivatePageLayout >
+		</>
 	);
 };
 

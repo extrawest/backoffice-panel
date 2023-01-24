@@ -5,4 +5,5 @@ export type FormInputProps = {
 	value?: string | number;
 	placeholder: string;
 	name: string;
+	isDate?: boolean;
 };
