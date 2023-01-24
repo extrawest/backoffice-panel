@@ -43,11 +43,10 @@ deploy_dev:
   before_script:
     - npm i -g firebase-tools
   script:
-    - firebase login:ci --interactive
-    - firebase deploy --only hosting:muiapp
-    - firebase deploy --only hosting:antapp
-    - firebase deploy --only hosting:primeapp
-    - firebase deploy --only hosting:semanticapp
-    - firebase deploy --only hosting:tailwindapp
+    - firebase deploy --only hosting:muiapp --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting:antapp --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting:primeapp --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting:semanticapp --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting:tailwindapp --token $FIREBASE_TOKEN
   environment:
     name: 'Development'
