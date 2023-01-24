@@ -12,7 +12,7 @@ stages:
 #   script:
 #     - npm run lint:all
 
-build:
+build_dev:
   only:
     - development
   except:
@@ -36,7 +36,7 @@ build:
     paths:
       - dist
 
-deploy:
+deploy_dev:
   only:
     - development
   except:
