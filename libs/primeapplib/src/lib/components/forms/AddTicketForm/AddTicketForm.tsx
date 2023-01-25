@@ -5,9 +5,9 @@ import { Calendar } from "primereact/calendar";
 import { InputText } from "primereact/inputtext";
 import { FileUpload, FileUploadHandlerParam } from "primereact/fileupload";
 import { Button } from "primereact/button";
+import { Toast } from "primereact/Toast";
 import { ClientTicketAddFormProps, ClientTicketPriority } from "@backoffice-panel-app/shared";
 import { addTicketFormSchema } from "./AddTicketForm.schema";
-import { Toast } from "primereact/Toast";
 
 export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 	initialValues,
