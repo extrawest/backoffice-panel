@@ -4,7 +4,7 @@ import teamLogo from "../../assets/icon/teamLogo.svg";
 import offersLogo from "../../assets/icon/offersLogo.svg";
 import partnersLogo from "../../assets/icon/partnersLogo.svg";
 import financesLogo from "../../assets/icon/financesLogo.svg";
-import clientsLogo from "../../assets/icon/clientsLogo.svg";
+import clientsLogo from "../../assets/icon/ClientsLogo.svg";
 
 export const getSidebarLinks = () => ([
 	{
