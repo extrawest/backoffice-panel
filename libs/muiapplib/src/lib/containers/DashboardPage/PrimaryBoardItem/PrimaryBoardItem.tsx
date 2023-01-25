@@ -1,5 +1,5 @@
-import { Box, Typography } from "@mui/material";
 import { FC } from "react";
+import { Box, Typography } from "@mui/material";
 import { primaryBoardItemStyles } from "./PrimaryBoardItem.styles";
 import { PrimaryBoardItemProps } from "./PrimaryBoardItem.types";
 
