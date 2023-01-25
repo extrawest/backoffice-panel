@@ -1,6 +1,4 @@
-import {
-	object, string, number
-} from "yup";
+import { object, string } from "yup";
 
 export const addTicketFormSchema = () => {
 	return object().shape({

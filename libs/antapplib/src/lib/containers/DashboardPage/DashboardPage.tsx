@@ -1,14 +1,14 @@
 import { useIntl } from "react-intl";
-import { Badge, Button, Card, Col, Input, List, Row, Space, Statistic, Typography } from "antd";
+import { Badge, Button, Card, Col, Input, List, Row, Space, Statistic, Typography, Grid } from "antd";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import Title from "antd/es/typography/Title";
-import { Grid } from "antd";
 import { limit, query } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { AppRouteEnum, firebaseClientsDBRef, firebaseTasksDBRef, getDashboardData, getTasksBadgeColor, PrimaryBoardChart, TaskType } from "@backoffice-panel-app/shared";
 import { PrivatePageLayout } from "../../layouts";
 import DashboardPageSecondaryHeader from "./DashboardPageSecondaryHeader/DashboardPageSecondaryHeader";
 import { dashboardPageTexts } from "./DashboardPage.texts";
+import { dashboardPageStyles } from "./DashboardPage.styles";
 
 export const DashboardPage = () => {
 	const intl = useIntl();
@@ -23,11 +23,7 @@ export const DashboardPage = () => {
 		>
 			<Space
 				direction="vertical"
-				style={{
-					width: "100vw",
-					height: "100vh",
-					padding: "44px"
-				}}
+				style={dashboardPageStyles.root}
 			>
 
 				<Row
@@ -126,11 +122,7 @@ export const DashboardPage = () => {
 						>
 							<List.Item>
 								<Space
-									style={{
-										justifyContent: "space-between",
-										display: "flex",
-										width: "100%"
-									}}
+									style={dashboardPageStyles.taskSection}
 								>
 									<Input
 										placeholder={intl.formatMessage(dashboardPageTexts.dashboardPageTasksSectionInput)}
@@ -144,7 +136,6 @@ export const DashboardPage = () => {
 									color={getTasksBadgeColor(item.type)}
 									style={{
 										color: item.type === TaskType.DEFAULT ? "#9FA2B4" : "#FFFFFF",
-
 									}}
 
 									key={i}
@@ -152,10 +143,7 @@ export const DashboardPage = () => {
 									<List.Item >
 										<Space.Compact
 											block
-											style={{
-												justifyContent: "space-between",
-												display: "flex"
-											}}
+											style={dashboardPageStyles.taskItem}
 										>
 											<Typography>{item.title}</Typography>
 

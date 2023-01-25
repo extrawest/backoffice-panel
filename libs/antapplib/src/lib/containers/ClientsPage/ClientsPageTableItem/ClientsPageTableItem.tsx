@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { ref as storageRef } from "firebase/storage";
 import { useDownloadURL } from "react-firebase-hooks/storage";
-import { ClientTicket, firebaseStorage } from "@backoffice-panel-app/shared";
 import { Avatar, List } from "antd";
+import { ClientTicket, firebaseStorage } from "@backoffice-panel-app/shared";
 
 const ClientsPageTableItem: FC<ClientTicket> = ({
 	title,
