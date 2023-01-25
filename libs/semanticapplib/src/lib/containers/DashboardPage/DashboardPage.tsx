@@ -1,10 +1,10 @@
 import { useIntl } from "react-intl";
 import { limit, query } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import { Container, Icon, Input, Menu, Search, Segment } from "semantic-ui-react";
 import { firebaseClientsDBRef, firebaseTasksDBRef, getDashboardData, getTasksBadgeColor, PrimaryBoardChart, TaskType } from "@backoffice-panel-app/shared";
 import { PrivatePageLayout } from "../../layout";
 import { dashboardPageTexts } from "./DashboardPage.texts";
-import { Container, Icon, Input, Menu, Search, Segment } from "semantic-ui-react";
 
 export const DashboardPage = () => {
 	const intl = useIntl();

@@ -3,6 +3,7 @@ import { useIntl } from "react-intl";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useUploadFile } from "react-firebase-hooks/storage";
 import { ref as storageRef } from "firebase/storage";
+import { Button, Container, Icon, Pagination, PaginationProps, Search, Table } from "semantic-ui-react";
 import dayjs from "dayjs";
 import {
 	ClientTicketAddFormValues,
@@ -13,10 +14,9 @@ import {
 	handleAddDataToClientTicketsList
 } from "@backoffice-panel-app/shared";
 import { PrivatePageLayout } from "../../layout";
-import { clientsPageTexts } from "./ClientsPage.texts";
 import { AddTicketModal } from "../../components";
-import { Button, Container, Icon, Pagination, PaginationProps, Search, Table } from "semantic-ui-react";
 import UserAvatar from "./UserAvatar/UserAvatar";
+import { clientsPageTexts } from "./ClientsPage.texts";
 
 export const ClientsPage = () => {
 	const intl = useIntl();

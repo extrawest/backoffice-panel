@@ -1,11 +1,11 @@
 import { FC, PropsWithChildren, useCallback, useState } from "react";
 import { useIntl } from "react-intl";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
+import { Button, Container, Icon, Image, Menu, Sidebar } from "semantic-ui-react";
 import { firebaseAuth, getSidebarLinks } from "@backoffice-panel-app/shared";
 import PageLayout from "../PageLayout/PageLayout";
 import { PrivatePageLayoutProps } from "./PrivatePageLayout.types";
 import { privatePageLayoutTexts } from "./PrivatePageLayout.texts";
-import { Button, Container, Icon, Image, Menu, Sidebar } from "semantic-ui-react";
 
 export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = ({
 	children,
