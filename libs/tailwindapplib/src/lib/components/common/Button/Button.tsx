@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren } from "react";
 import { ButtonProps } from "./Button.types";
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = ({

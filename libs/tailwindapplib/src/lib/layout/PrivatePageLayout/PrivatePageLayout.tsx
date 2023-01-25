@@ -1,15 +1,15 @@
 import { FC, PropsWithChildren, useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useIntl } from "react-intl";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { firebaseAuth, getSidebarLinks } from "@backoffice-panel-app/shared";
 import PageLayout from "../PageLayout/PageLayout";
+import { Button } from "../../components";
 import { PrivatePageLayoutProps } from "./PrivatePageLayout.types";
 import { privatePageLayoutTexts } from "./PrivatePageLayout.texts";
-import { Button } from "../../components";
 import menuLogo from "../../assets/icons/menuLogo.svg";
 import signLogo from "../../assets/icons/signOutLogo.svg";
 import userLogo from "../../assets/icons/loginLogo.svg";
-import { useNavigate } from "react-router-dom";
 
 export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = ({
 	children,

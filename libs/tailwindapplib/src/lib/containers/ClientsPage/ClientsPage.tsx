@@ -13,10 +13,11 @@ import {
 	handleAddDataToClientTicketsList
 } from "@backoffice-panel-app/shared";
 import { PrivatePageLayout } from "../../layout";
-import { clientsPageTexts } from "./ClientsPage.texts";
 import { AddTicketModal, FormInput } from "../../components";
 import UserAvatar from "./UserAvatar/UserAvatar";
+import { clientsPageTexts } from "./ClientsPage.texts";
 import settingLogo from "../../assets/icons/menuLogo.svg";
+import { clientsPageStyles } from "./ClientsPage.styles";
 
 export const ClientsPage = () => {
 	const intl = useIntl();
@@ -108,11 +109,7 @@ export const ClientsPage = () => {
 					<div className="client-page_table-wrapper">
 						<div
 							className="table"
-							style={{
-								width: "100%",
-								border: "1px solid #DFE0EB",
-								borderRadius: "8px",
-							}}
+							style={clientsPageStyles.table}
 						>
 							<table
 								style={{
@@ -120,21 +117,12 @@ export const ClientsPage = () => {
 								}}
 							>
 								<thead
-									style={{
-										width: "100%",
-										borderBottom: "1px solid #DFE0EB",
-										borderRadius: "8px"
-									}}
+									style={clientsPageStyles.thead}
 								>
 									<tr>
 										<th colSpan={5}>
 											<div
-												style={{
-													display: "flex",
-													width: "100%",
-													justifyContent: "space-between",
-													padding: "10px"
-												}}
+												style={clientsPageStyles.tableHeaderWrapper}
 											>
 												<h4
 													style={{
@@ -159,35 +147,13 @@ export const ClientsPage = () => {
 												>
 													<button
 														onClick={handleOpenModal}
-														style={{
-															fontFamily: "Open Sans",
-															fontStyle: "normal",
-															fontWeight: "700",
-															fontSize: "19px",
-															lineHeight: "26px",
-															letterSpacing: "0.4px",
-															color: "#252733",
-															border: "1px black solid",
-															padding: "5px",
-															borderRadius: "10px"
-														}}
+														style={clientsPageStyles.tableHeaderButton}
 													>
 														{intl.formatMessage(clientsPageTexts.addButtonText)}
 
 													</button>
 													<button
-														style={{
-															fontFamily: "Open Sans",
-															fontStyle: "normal",
-															fontWeight: "700",
-															fontSize: "19px",
-															lineHeight: "26px",
-															letterSpacing: "0.4px",
-															color: "#252733",
-															border: "1px black solid",
-															padding: "5px",
-															borderRadius: "10px"
-														}}
+														style={clientsPageStyles.tableHeaderButton}
 													>
 														{intl.formatMessage(clientsPageTexts.filterButtonText)}
 													</button>
@@ -226,7 +192,6 @@ export const ClientsPage = () => {
 											}}
 										>
 											Priority
-
 										</th>
 									</tr>
 								</thead>
@@ -332,44 +297,20 @@ export const ClientsPage = () => {
 								</tbody>
 							</table>
 							<nav
-								style={{
-									borderTop: "1px solid #DFE0EB",
-									padding: "10px 2vw",
-									display: "flex",
-									justifyContent: "flex-end"
-								}}
+								style={clientsPageStyles.nav}
 							>
 								<div className="buttonWrapper">
 									<button
 										onClick={() => handleChangePage("prev")}
-										style={{
-											background: "#9FA2B4",
-											padding: "5px 10px",
-											borderRadius: "30px 0px 0px 30px",
-											fontFamily: "Mulish",
-											fontStyle: "normal",
-											fontWeight: "600",
-											fontSize: "14px",
-											lineHeight: "20px",
-											color: "#252733",
-											border: "1px solid black"
-										}}
+										style={clientsPageStyles.navButton}
 									>
 										Prev
 									</button>
 									<button
 										onClick={() => handleChangePage("next")}
 										style={{
-											background: "#9FA2B4",
-											padding: "5px 10px",
+											...clientsPageStyles.navButton,
 											borderRadius: "0px 30px 30px 0px",
-											fontFamily: "Mulish",
-											fontStyle: "normal",
-											fontWeight: "600",
-											fontSize: "14px",
-											lineHeight: "20px",
-											color: "#252733",
-											border: "1px solid black"
 										}}
 									>
 										Next

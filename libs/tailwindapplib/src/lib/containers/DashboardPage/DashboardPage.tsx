@@ -3,8 +3,8 @@ import { limit, query } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { firebaseClientsDBRef, firebaseTasksDBRef, getDashboardData, getTasksBadgeColor, PrimaryBoardChart, TaskType } from "@backoffice-panel-app/shared";
 import { PrivatePageLayout } from "../../layout";
-import { dashboardPageTexts } from "./DashboardPage.texts";
 import { Button, FormInput } from "../../components";
+import { dashboardPageTexts } from "./DashboardPage.texts";
 import addIcon from "../../assets/icons/plusIcon.svg";
 
 export const DashboardPage = () => {
