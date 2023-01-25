@@ -5,11 +5,12 @@ import Title from "antd/es/typography/Title";
 import { ref as storageRef } from "firebase/storage";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useUploadFile } from "react-firebase-hooks/storage";
+import { FilterOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { ClientTicketAddFormValues, firebaseClientsDBRef, firebaseStorage, handleAddDataToClientTicketsList } from "@backoffice-panel-app/shared";
 import { PrivatePageLayout } from "../../layouts";
-import { FilterOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { clientsPageTexts } from "./ClientsPage.texts";
 import { AddTicketModal } from "../../components";
+import { clientsPageStyles } from "./ClientsPage.styles";
+import { clientsPageTexts } from "./ClientsPage.texts";
 
 export const ClientsPage = () => {
 	const columns = [
@@ -79,11 +80,7 @@ export const ClientsPage = () => {
 		>
 			<Space
 				direction="vertical"
-				style={{
-					width: "100vw",
-					height: "100vh",
-					padding: "44px"
-				}}
+				style={clientsPageStyles.root}
 			>
 
 				<Row

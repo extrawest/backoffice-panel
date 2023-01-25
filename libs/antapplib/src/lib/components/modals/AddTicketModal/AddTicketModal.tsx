@@ -2,10 +2,10 @@ import { FC } from "react";
 import { Col, Modal, Row } from "antd";
 import { useIntl } from "react-intl";
 import Title from "antd/es/typography/Title";
+import { ClientTicketPriority } from "@backoffice-panel-app/shared";
+import { AddTicketForm } from "../../forms";
 import { AddTicketModalProps } from "./AddTicketModal.types";
 import { addTicketModalTexts } from "./AddTicketModal.texts";
-import { AddTicketForm } from "../../forms";
-import { ClientTicketAddFormValues, ClientTicketPriority } from "@backoffice-panel-app/shared";
 
 export const AddTicketModal: FC<AddTicketModalProps> = ({
 	isOpen,
@@ -13,7 +13,6 @@ export const AddTicketModal: FC<AddTicketModalProps> = ({
 	onSubmit
 }) => {
 	const intl = useIntl();
-
 	return (
 		<Modal
 			open={isOpen}

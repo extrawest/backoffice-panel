@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Field, Form, Formik, FormikValues } from "formik";
+import { Button, Dropdown, Input } from "semantic-ui-react";
 import { ClientTicketAddFormProps, ClientTicketPriority } from "@backoffice-panel-app/shared";
 import { addTicketFormSchema } from "./AddTicketForm.schema";
-import { Button, Dropdown, Input } from "semantic-ui-react";
 
 export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 	initialValues,

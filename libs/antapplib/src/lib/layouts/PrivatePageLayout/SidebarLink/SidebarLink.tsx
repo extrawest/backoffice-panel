@@ -1,7 +1,8 @@
 import { FC, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { AppRouteEnum, SideBarLinkProps } from "@backoffice-panel-app/shared";
 import { Image, Typography } from "antd";
+import { AppRouteEnum, SideBarLinkProps } from "@backoffice-panel-app/shared";
+import { sidebarLinkStyles } from "./SidebarLink.styles";
 
 export const SidebarLink: FC<SideBarLinkProps> = ({
 	link,
@@ -24,13 +25,7 @@ export const SidebarLink: FC<SideBarLinkProps> = ({
 		<Typography
 			onClick={handleUseLink}
 			style={{
-				fontSize: "20px",
-				padding: "0",
-				display: "flex",
-				alignItems: "center",
-				gap: "5px",
-				cursor: "pointer",
-				color: "#505050",
+				...sidebarLinkStyles.root,
 				fontWeight: location.pathname === link ? 600 : 300
 			}}
 

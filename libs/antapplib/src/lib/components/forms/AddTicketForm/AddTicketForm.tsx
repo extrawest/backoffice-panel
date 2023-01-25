@@ -1,15 +1,18 @@
 import { FC } from "react";
+import { useIntl } from "react-intl";
 import { Field, Form, Formik, FormikValues } from "formik";
 import { ClientTicketAddFormProps, ClientTicketPriority } from "@backoffice-panel-app/shared";
-import { addTicketFormSchema } from "./AddTicketForm.schema";
 import { Button, Col, DatePicker, Input, Row, Select, Space, Upload } from "antd";
 import dayjs from "dayjs";
+import { addTicketFormSchema } from "./AddTicketForm.schema";
+import { loginFormTexts } from "../LoginForm/LoginForm.texts";
 
 export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 	initialValues,
 	onSubmit,
 	isLoading
 }) => {
+	const intl = useIntl();
 	const dropdownProps = [
 		{
 			label: ClientTicketPriority.HIGH,
@@ -32,7 +35,7 @@ export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 			onSubmit={onSubmit}
 			validationSchema={schema}
 		>
-			{({ setFieldValue, values }) => (
+			{({ setFieldValue }) => (
 				<Form>
 					<Row
 						justify="space-around"
@@ -104,7 +107,6 @@ export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 											style={{
 												width: "100%"
 											}}
-										// setFieldValue("dateOfAccount", stringValue)
 										/>
 									)}
 								</Field>
@@ -112,7 +114,9 @@ export const AddTicketForm: FC<ClientTicketAddFormProps> = ({
 							</Space>
 						</Col>
 						<Col span={22}>
-							<Button htmlType="submit">Add</Button>
+							<Button htmlType="submit">
+								{intl.formatMessage(loginFormTexts.logInButtonText)}
+							</Button>
 						</Col>
 					</Row>
 				</Form>

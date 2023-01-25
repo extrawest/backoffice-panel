@@ -3,12 +3,13 @@ import { useIntl } from "react-intl";
 import { Button, Space } from "antd";
 import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { GoogleOutlined, AppleOutlined, FacebookOutlined } from "@ant-design/icons";
-import { firebaseAuth, LoginFormValues } from "@backoffice-panel-app/shared";
 import Title from "antd/es/typography/Title";
 import Paragraph from "antd/es/typography/Paragraph";
+import { firebaseAuth, LoginFormValues } from "@backoffice-panel-app/shared";
 import { PageLayout } from "../../layouts";
 import { LoginForm } from "../../components";
 import { loginPageTexts } from "./LoginPage.texts";
+import { loginPageStyles } from "./LoginPage.styles";
 
 export const LoginPage = () => {
 	const intl = useIntl();
@@ -70,8 +71,8 @@ export const LoginPage = () => {
 				</Title>
 				<Paragraph
 					style={{
+						...loginPageStyles.loginSubtitlePageTitle,
 						textAlign: "center",
-						color: "#5F6769"
 					}}
 				>
 					{intl.formatMessage(loginPageTexts.loginSubtitlePageTitle)}
@@ -106,12 +107,11 @@ export const LoginPage = () => {
 						<Button
 							shape="circle"
 							size="large"
-							icon={<FacebookOutlined style={{fontSize: 20}}/>}
+							icon={<FacebookOutlined style={{ fontSize: 20 }} />}
 							onClick={handleSignInWithFacebook}
 						/>
 					</Space>
 				</Space>
-
 			</Space>
 		</PageLayout>
 	);

@@ -1,5 +1,5 @@
-import { Box, MenuItem, Select as MUISelect } from "@mui/material";
 import { FC } from "react";
+import { Box, MenuItem, Select as MUISelect } from "@mui/material";
 import { getStartAdormentLogo } from "../Input/Input.utils";
 import { SelectProps } from "./Select.types";
 

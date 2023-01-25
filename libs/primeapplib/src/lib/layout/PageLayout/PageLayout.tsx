@@ -1,8 +1,8 @@
 import { FC, PropsWithChildren, useEffect, useRef } from "react";
+import { useIntl } from "react-intl";
 import { ProgressSpinner } from "primereact/Progressspinner";
 import { Toast } from "primereact/Toast";
 import { PageLayoutProps } from "./PageLayout.types";
-import { useIntl } from "react-intl";
 import { pageLayoutTexts } from "./PageLayout.texts";
 
 export const PageLayout: FC<PropsWithChildren<PageLayoutProps>> = ({

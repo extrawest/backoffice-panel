@@ -1,13 +1,13 @@
 import { FC, PropsWithChildren, useCallback, useState } from "react";
+import { Button, Drawer, Space } from "antd";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { useIntl } from "react-intl";
+import { DoubleRightOutlined, LogoutOutlined } from "@ant-design/icons";
 import { firebaseAuth, getSidebarLinks } from "@backoffice-panel-app/shared";
 import SidebarProfile from "./SidebarProfile/SidebarProfile";
 import PageLayout from "../PageLayout/PageLayout";
 import SidebarLink from "./SidebarLink/SidebarLink";
 import { PrivatePageLayoutProps } from "./PrivatePageLayout.types";
-import { Button, Drawer, Space } from "antd";
-import { DoubleRightOutlined, LogoutOutlined } from "@ant-design/icons";
 import { privatePageLayoutTexts } from "./PrivatePageLayout.texts";
 
 export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = ({

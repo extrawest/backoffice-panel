@@ -2,8 +2,8 @@ import { FC } from "react";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import { DatePickerProps } from "./DatePicker.types";
 import Input from "../Input/Input";
+import { DatePickerProps } from "./DatePicker.types";
 
 export const DatePicker: FC<DatePickerProps> = ({
 	value,

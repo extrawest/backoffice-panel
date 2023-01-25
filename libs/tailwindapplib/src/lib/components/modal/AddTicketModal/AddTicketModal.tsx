@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { AddTicketModalProps } from "./AddTicketModal.types";
-import { AddTicketForm } from "../../forms";
 import { ClientTicketPriority } from "@backoffice-panel-app/shared";
+import { AddTicketForm } from "../../forms";
+import { AddTicketModalProps } from "./AddTicketModal.types";
 
 export const AddTicketModal: FC<AddTicketModalProps> = ({
 	onSubmitAddForm,

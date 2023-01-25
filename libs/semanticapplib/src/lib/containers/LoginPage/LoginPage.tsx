@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 import { useIntl } from "react-intl";
 import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { Button, Icon, Container } from "semantic-ui-react";
 import { firebaseAuth, LoginFormValues } from "@backoffice-panel-app/shared";
 import { PageLayout } from "../../layout";
 import { LoginForm } from "../../components";
 import { loginPageTexts } from "./LoginPage.texts";
-import { Button, Icon, Container } from "semantic-ui-react";
 
 export const LoginPage = () => {
 	const intl = useIntl();

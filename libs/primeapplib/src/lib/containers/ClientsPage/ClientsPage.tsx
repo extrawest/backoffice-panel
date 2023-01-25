@@ -3,15 +3,15 @@ import { useIntl } from "react-intl";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useDownloadURL, useUploadFile } from "react-firebase-hooks/storage";
 import { ref as storageRef } from "firebase/storage";
+import dayjs from "dayjs";
 import { Column } from "primereact/Column";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import { DataTable } from "primereact/DataTable";
 import { ClientTicket, ClientTicketAddFormValues, ClientTicketPriority, firebaseClientsDBRef, firebaseStorage, getLastUpdatedTitle, handleAddDataToClientTicketsList } from "@backoffice-panel-app/shared";
 import { PrivatePageLayout } from "../../layout";
-import dayjs from "dayjs";
-import { clientsPageTexts } from "./ClientsPage.texts";
 import { AddTicketModal } from "../../components";
+import { clientsPageTexts } from "./ClientsPage.texts";
 
 export const ClientsPage = () => {
 	const intl = useIntl();
