@@ -4,6 +4,9 @@ body, * {
 	padding: 0;
 	box-sizing: border-box;
 }
+body {
+	overflow-x: hidden;
+}
 .page-layout {
 	height: 100vh;
 	width: 100vw;
