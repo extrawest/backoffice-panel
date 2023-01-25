@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 import { Column } from "primereact/column";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
-import { DataTable } from "primereact/dataTable";
+import { DataTable } from "primereact/datatable";
 import { ClientTicket, ClientTicketAddFormValues, ClientTicketPriority, firebaseClientsDBRef, firebaseStorage, getLastUpdatedTitle, handleAddDataToClientTicketsList } from "@backoffice-panel-app/shared";
 import { PrivatePageLayout } from "../../layout";
 import { AddTicketModal } from "../../components";
