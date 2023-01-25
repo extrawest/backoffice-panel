@@ -3,11 +3,12 @@ import { useIntl } from "react-intl";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useDownloadURL, useUploadFile } from "react-firebase-hooks/storage";
 import { ref as storageRef } from "firebase/storage";
+import { Timestamp } from "firebase/firestore";
 import dayjs from "dayjs";
-import { Column } from "primereact/Column";
+import { Column } from "primereact/column";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
-import { DataTable } from "primereact/DataTable";
+import { DataTable } from "primereact/dataTable";
 import { ClientTicket, ClientTicketAddFormValues, ClientTicketPriority, firebaseClientsDBRef, firebaseStorage, getLastUpdatedTitle, handleAddDataToClientTicketsList } from "@backoffice-panel-app/shared";
 import { PrivatePageLayout } from "../../layout";
 import { AddTicketModal } from "../../components";
@@ -178,13 +179,13 @@ export const ClientsPage = () => {
 							field="dateOfCreationTicket"
 							header="Date"
 							style={{ minWidth: "14rem" }}
-							body={(rowItem) => dayjs(rowItem.dateOfCreationTicket?.toDate()).format("DD/MM/YYYY")}
+							body={(rowItem: {dateOfCreationTicket: Timestamp}) => dayjs(rowItem.dateOfCreationTicket?.toDate()).format("DD/MM/YYYY")}
 						/>
 						<Column
 							field="priority"
 							header="Priority"
 							style={{ minWidth: "14rem" }}
-							body={(rowItem) => (
+							body={(rowItem: {priority: ClientTicketPriority}) => (
 								<div
 									style={{
 										background: getLabelColor(rowItem.priority).background,

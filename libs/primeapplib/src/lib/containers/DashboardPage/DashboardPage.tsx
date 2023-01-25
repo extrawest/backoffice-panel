@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useIntl } from "react-intl";
 import { limit, query } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { Panel } from "primereact/Panel";
+import { Panel } from "primereact/panel";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { RadioButton } from "primereact/radiobutton";

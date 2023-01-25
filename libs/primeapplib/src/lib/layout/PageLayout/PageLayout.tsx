@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren, useEffect, useRef } from "react";
 import { useIntl } from "react-intl";
-import { ProgressSpinner } from "primereact/Progressspinner";
-import { Toast } from "primereact/Toast";
+import { ProgressSpinner } from "primereact/progressspinner";
+import { Toast } from "primereact/toast";
 import { PageLayoutProps } from "./PageLayout.types";
 import { pageLayoutTexts } from "./PageLayout.texts";
 
