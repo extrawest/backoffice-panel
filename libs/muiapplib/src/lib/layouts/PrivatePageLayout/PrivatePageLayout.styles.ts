@@ -1,3 +1,5 @@
+import { theme } from "../../theme/theme";
+
 export const privatePageLayoutStyles = {
 	sideBar: {
 		maxWidth: "460px",
@@ -12,7 +14,11 @@ export const privatePageLayoutStyles = {
 			display: "flex",
 			flexDirection: "column",
 			justifyContent: "space-between",
-			alignItem: "center"
+			alignItem: "center",
+			[theme.breakpoints.down("md")]: {
+				padding: "27px 20px",
+				gap: "20px"
+			}
 		}
 	},
 	bodyPart: {
@@ -22,7 +28,10 @@ export const privatePageLayoutStyles = {
 		alignItems: "flex-start",
 		justifyContent: "flex-start",
 		padding: "44px 100px",
-		width: "100%"
+		width: "100%",
+		[theme.breakpoints.down("md")]: {
+			padding: "15px",
+		}
 	},
 	profileWrapper: {
 		display: "flex",

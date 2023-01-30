@@ -1,3 +1,5 @@
+import { theme } from "../../theme/theme";
+
 export const dashboardPageStyles = {
 	search: {
 		maxWidth: "500px",
@@ -8,26 +10,41 @@ export const dashboardPageStyles = {
 		display: "flex",
 		justifyContent: "space-between",
 		flexWrap: "wrap",
-		alignItems: "flex-start"
+		alignItems: "flex-start",
+		[theme.breakpoints.down("md")]: {
+			flexDirection: "column"
+		}
 	},
 	primaryBoard: {
 		marginTop: "51px",
 		width: "100%",
 		border: "1px solid #DFE0EB",
 		borderRadius: "8px",
-		display: "flex"
+		display: "flex",
+		[theme.breakpoints.down("md")]: {
+			flexDirection: "column"
+		}
 	},
 	primaryBoardDescription: {
-		width: "30%"
+		width: "30%",
+		[theme.breakpoints.down("md")]: {
+			width: "100%",
+		}
 	},
 	primaryBoardChart: {
-		width: "70%"
+		width: "70%",
+		[theme.breakpoints.down("md")]: {
+			width: "100%",
+		}
 	},
 	secondaryBoard: {
 		marginTop: "31px",
 		width: "45%",
 		border: "1px solid #DFE0EB",
 		borderRadius: "8px",
+		[theme.breakpoints.down("md")]: {
+			width: "100%",
+		}
 	},
 	badge: {
 		borderRadius: "8px",
@@ -43,6 +60,7 @@ export const dashboardPageStyles = {
 	},
 	primaryBoardChartRoot: {
 		width: "100%",
-		height: "100%"
+		height: "100%",
+		minHeight: "300px"
 	}
 };

@@ -38,7 +38,6 @@ export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = 
 					<Drawer
 						open={isOpenDrawer}
 						sx={privatePageLayoutStyles.sideBar}
-						variant="persistent"
 						anchor="left"
 
 					>
