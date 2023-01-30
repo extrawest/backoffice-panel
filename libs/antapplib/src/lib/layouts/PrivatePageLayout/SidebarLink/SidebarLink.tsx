@@ -19,8 +19,6 @@ export const SidebarLink: FC<SideBarLinkProps> = ({
 		[navigate],
 	);
 
-	console.log("navigate", location.pathname);
-
 	return (
 		<Typography
 			onClick={handleUseLink}

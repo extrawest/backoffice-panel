@@ -37,7 +37,6 @@ export const ClientsPage = () => {
 
 	const handleSubmitAddForm = useCallback(
 		async (values: ClientTicketAddFormValues) => {
-			console.log("values", dayjs(values.dateOfAccount).format("YYYY-MM-DD"));
 			let userAvatarRef;
 			if (values.userImage) {
 				const avatarImageName = `clients/${values.fullName}_image.jpg`;
