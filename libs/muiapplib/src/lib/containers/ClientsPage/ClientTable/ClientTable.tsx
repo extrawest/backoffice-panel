@@ -60,7 +60,7 @@ const ClientTable: FC<ClientTableProps> = ({
 				</Box>
 			</Toolbar>
 			<TableContainer>
-				<Table>
+				<Table sx={{minWidth: 850}}>
 					<TableHead>
 						<TableRow>
 							{tableHeaderTitles.map((item, i) => (

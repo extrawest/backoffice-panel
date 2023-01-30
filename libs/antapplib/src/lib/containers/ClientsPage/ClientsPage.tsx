@@ -58,7 +58,6 @@ export const ClientsPage = () => {
 
 	const handleSubmitAddForm = useCallback(
 		async (values: ClientTicketAddFormValues) => {
-			console.log("values", values);
 			let userAvatarRef;
 			if (values.userImage) {
 				const avatarImageName = `clients/${values.fullName}_image.jpg`;
@@ -116,7 +115,7 @@ export const ClientsPage = () => {
 										<Title level={3}>{intl.formatMessage(clientsPageTexts.ticketTableTitleText)}</Title>
 									</Col>
 									<Col
-										push={15}
+										push={breakpoints.lg ? 15 : 7}
 										span={2}
 									>
 										<Button

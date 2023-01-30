@@ -37,7 +37,6 @@ export const ClientsPage = () => {
 
 	const handleSubmitAddForm = useCallback(
 		async (values: ClientTicketAddFormValues) => {
-			console.log("values", dayjs(values.dateOfAccount).format("YYYY-MM-DD"));
 			let userAvatarRef;
 			if (values.userImage) {
 				const avatarImageName = `clients/${values.fullName}_image.jpg`;
@@ -113,12 +112,12 @@ export const ClientsPage = () => {
 				<h3 className="m-0">{intl.formatMessage(clientsPageTexts.ticketTableTitleText)}</h3>
 				<div>
 					<Button
-						className="p-button mr-4"
+						className="p-button mr-4 p-2"
 						onClick={handleOpenModal}
 						label={intl.formatMessage(clientsPageTexts.addButtonText)}
 					/>
 					<Button
-						className="p-button"
+						className="p-button p-2"
 						onClick={handleOpenModal}
 						label={intl.formatMessage(clientsPageTexts.filterButtonText)}
 					/>
