@@ -6,6 +6,7 @@ import { firebaseAuth, getSidebarLinks } from "@backoffice-panel-app/shared";
 import PageLayout from "../PageLayout/PageLayout";
 import { PrivatePageLayoutProps } from "./PrivatePageLayout.types";
 import { privatePageLayoutTexts } from "./PrivatePageLayout.texts";
+import extrawestLogo from "../../assets/extrawestLogo.png";
 
 export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = ({
 	children,
@@ -33,6 +34,35 @@ export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = 
 			{!isLoadingUser && !errorUser && user &&
 				<>
 					{children}
+					<div
+						style={{
+							position: "absolute",
+							top: 0,
+							left: 0,
+							fontFamily: "Open Sans",
+							fontStyle: "normal",
+							fontWeight: 600,
+							fontSize: "16px",
+							lineHeight: "22px",
+							textAlign: "center",
+							letterSpacing: "0.3px",
+							color: "#9FA2B4",
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+							padding: "1px",
+							width: "100%",
+							gap: "10px",
+							background: "white"
+						}}
+					>
+						Powered by Extrawest
+						<img
+							src={extrawestLogo}
+							height={30}
+							alt="extrawestLogo"
+						/>
+					</div>
 					<Button
 						className="layout-open-sidebar"
 						icon

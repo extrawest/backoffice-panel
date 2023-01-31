@@ -8,6 +8,7 @@ import { ClientPageAddModal, Input } from "../../components";
 import { PrivatePageLayout } from "../../layouts";
 import ClientTable from "./ClientTable/ClientTable";
 import { clientsPageStyles } from "./ClientsPage.styles";
+import extrawestLogo from "../../assets/icons/extrawestLogo.png";
 
 export const ClientsPage = () => {
 	const [clientsData, isLoadingClientsData, clientsDataError] = useCollectionData(firebaseClientsDBRef);
@@ -71,6 +72,18 @@ export const ClientsPage = () => {
 				onSubmitAddForm={handleSubmitAddForm}
 				isLoading={isLoadingClientsData || uploading}
 			/>
+			<Box
+				sx={clientsPageStyles.logo}
+			>
+				Powered by Extrawest
+				<Box
+					sx={{
+						height: "30px"
+					}}
+					component="img"
+					src={extrawestLogo}
+				/>
+			</Box>
 		</PrivatePageLayout>
 	);
 };

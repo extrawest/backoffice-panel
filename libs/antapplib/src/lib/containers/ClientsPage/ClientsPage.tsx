@@ -1,6 +1,8 @@
 import { useState, useCallback } from "react";
 import { useIntl } from "react-intl";
+import { Timestamp } from "firebase/firestore";
 import { Button, Col, Grid, Input, Row, Space, Table } from "antd";
+import dayjs from "dayjs";
 import Title from "antd/es/typography/Title";
 import { ref as storageRef } from "firebase/storage";
 import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -27,7 +29,8 @@ export const ClientsPage = () => {
 		{
 			title: "Date",
 			dataIndex: "dateOfCreationTicket",
-			key: "dateOfCreationTicket"
+			key: "dateOfCreationTicket",
+			render: (item: Timestamp) => <>{dayjs(item?.toDate()).format("DD/MM/YYYY")}</>
 		},
 		{
 			title: "Priority",

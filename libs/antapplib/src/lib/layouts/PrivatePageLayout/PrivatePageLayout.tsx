@@ -1,14 +1,15 @@
 import { FC, PropsWithChildren, useCallback, useState } from "react";
-import { Button, Drawer, Space } from "antd";
+import { Button, Drawer, Image, Space } from "antd";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { useIntl } from "react-intl";
-import { DoubleRightOutlined, LogoutOutlined } from "@ant-design/icons";
+import { MenuOutlined, LogoutOutlined } from "@ant-design/icons";
 import { firebaseAuth, getSidebarLinks } from "@backoffice-panel-app/shared";
 import SidebarProfile from "./SidebarProfile/SidebarProfile";
 import PageLayout from "../PageLayout/PageLayout";
 import SidebarLink from "./SidebarLink/SidebarLink";
 import { PrivatePageLayoutProps } from "./PrivatePageLayout.types";
 import { privatePageLayoutTexts } from "./PrivatePageLayout.texts";
+import extrawestLogo from "../../assets/extrawestLogo.png";
 
 export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = ({
 	isLoading,
@@ -45,8 +46,35 @@ export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = 
 							left: "30px"
 						}}
 						onClick={handleToggleOpenDrawer}
-						icon={<DoubleRightOutlined />}
+						icon={<MenuOutlined />}
 					/>
+					<Space
+						style={{
+							position: "absolute",
+							top: 0,
+							left: 0,
+							fontFamily: "Open Sans",
+							fontStyle: "normal",
+							fontWeight: 600,
+							fontSize: "16px",
+							lineHeight: "22px",
+							textAlign: "center",
+							letterSpacing: "0.3px",
+							color: "#9FA2B4",
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+							padding: "10px",
+							width: "100%",
+							gap: "10px"
+						}}
+					>
+						Powered by Extrawest
+						<Image
+							src={extrawestLogo}
+							height={30}
+						/>
+					</Space>
 					<Drawer
 						open={isOpenDrawer}
 						onClose={handleToggleOpenDrawer}

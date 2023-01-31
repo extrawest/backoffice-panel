@@ -16,7 +16,7 @@ export const privatePageLayoutStyles = {
 			justifyContent: "space-between",
 			alignItem: "center",
 			[theme.breakpoints.down("md")]: {
-				padding: "27px 20px",
+				padding: "47px 20px",
 				gap: "20px"
 			}
 		}

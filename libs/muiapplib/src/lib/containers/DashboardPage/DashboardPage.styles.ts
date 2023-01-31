@@ -3,7 +3,10 @@ import { theme } from "../../theme/theme";
 export const dashboardPageStyles = {
 	search: {
 		maxWidth: "500px",
-		marginBottom: "70px"
+		marginBottom: "70px",
+		[theme.breakpoints.down("md")]: {
+			marginTop: "40px"
+		}
 	},
 	boardWrapper: {
 		width: "100%",
@@ -62,5 +65,24 @@ export const dashboardPageStyles = {
 		width: "100%",
 		height: "100%",
 		minHeight: "300px"
+	},
+	logo: {
+		position: "absolute",
+		top: 0,
+		left: 0,
+		fontFamily: "Open Sans",
+		fontStyle: "normal",
+		fontWeight: 600,
+		fontSize: "16px",
+		lineHeight: "22px",
+		textAlign: "center",
+		letterSpacing: "0.3px",
+		color: "#9FA2B4",
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+		padding: "20px",
+		width: "100%",
+		gap: "10px"
 	}
 };
