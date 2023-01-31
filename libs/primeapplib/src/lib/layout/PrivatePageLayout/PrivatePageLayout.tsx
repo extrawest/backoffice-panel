@@ -9,6 +9,7 @@ import { firebaseAuth, getSidebarLinks } from "@backoffice-panel-app/shared";
 import PageLayout from "../PageLayout/PageLayout";
 import { PrivatePageLayoutProps } from "./PrivatePageLayout.types";
 import { privatePageLayoutTexts } from "./PrivatePageLayout.texts";
+import extrawestLogo from "../../assets/extrawestLogo.png";
 
 export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = ({
 	isLoading,
@@ -38,12 +39,40 @@ export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = 
 			{!isLoadingUser && !errorUser && user && (
 				<>
 					{children}
+					<div
+						style={{
+							position: "absolute",
+							top: 0,
+							left: 0,
+							fontFamily: "Open Sans",
+							fontStyle: "normal",
+							fontWeight: 600,
+							fontSize: "16px",
+							lineHeight: "22px",
+							textAlign: "center",
+							letterSpacing: "0.3px",
+							color: "#9FA2B4",
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+							padding: "10px",
+							width: "100%",
+							gap: "10px"
+						}}
+					>
+						Powered by Extrawest
+						<img
+							src={extrawestLogo}
+							height={30}
+							alt="extrawestLogo"
+						/>
+					</div>
 					<Button
 						className="p-button-rounded absolute"
 						onClick={handleToggleOpenDrawer}
 					>
 						<i
-							className="pi pi-arrow-right"
+							className="pi pi-list"
 							style={{ fontSize: "1.4rem" }}
 						>
 						</i>
