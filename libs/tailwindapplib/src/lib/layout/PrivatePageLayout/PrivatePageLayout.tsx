@@ -10,6 +10,7 @@ import { privatePageLayoutTexts } from "./PrivatePageLayout.texts";
 import menuLogo from "../../assets/icons/menuLogo.svg";
 import signLogo from "../../assets/icons/signOutLogo.svg";
 import userLogo from "../../assets/icons/loginLogo.svg";
+import extrawestLogo from "../../assets/icons/extrawestLogo.png";
 
 export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = ({
 	children,
@@ -37,8 +38,44 @@ export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = 
 		>
 			{!isLoadingUser && !errorUser && user &&
 				<>
-					<div className="content-wrapper">
+					<div
+						className="content-wrapper"
+						style={{
+							overflow: "auto"
+						}}
+					>
 						{children}
+					</div>
+					<div
+						style={{
+							position: "absolute",
+							top: 0,
+							left: 0,
+							fontFamily: "Open Sans",
+							fontStyle: "normal",
+							fontWeight: 600,
+							fontSize: "16px",
+							lineHeight: "22px",
+							textAlign: "center",
+							letterSpacing: "0.3px",
+							color: "#9FA2B4",
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+							padding: "10px",
+							width: "100%",
+							gap: "10px",
+							background: "white"
+						}}
+					>
+						Powered by Extrawest
+						<img
+							src={extrawestLogo}
+							style={{
+								height: 30
+							}}
+							alt="extrawestLogo"
+						/>
 					</div>
 					<div
 						className="private-layout"

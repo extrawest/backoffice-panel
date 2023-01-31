@@ -70,6 +70,7 @@ body {
 	}
 }
 .ui.fluid.container.client-page {
+	overflow-y: scroll;
 	height: 100vh;
 	width: 100vw !important;
 	display: flex;
@@ -115,6 +116,7 @@ body {
 	flex-direction: column;
 	justify-content: flex-start;
 	padding: 9vmin 5vmin;
+	overflow-y: scroll;
 	.dashboard-page_search {
 		width: 100%;
 	}
