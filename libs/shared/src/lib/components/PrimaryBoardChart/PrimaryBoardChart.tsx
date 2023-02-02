@@ -12,7 +12,7 @@ export const PrimaryBoardChart = () => {
 	];
 
 	return (
-		<ResponsiveContainer >
+		<ResponsiveContainer minHeight={300}>
 			<LineChart
 				data={data}
 				margin={{

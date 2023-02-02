@@ -54,7 +54,7 @@ export const DashboardPage = () => {
 								<Col
 									span={breakpoints.lg ? 18 : 24}
 									style={{
-										minHeight: "300px"
+										minHeight: "300px",
 									}}
 								>
 									<PrimaryBoardChart />
@@ -66,10 +66,22 @@ export const DashboardPage = () => {
 										{getDashboardData().map((item, i) => (
 											<List.Item
 												key={i}
+												style={{
+													display: "flex",
+													flexDirection: "column",
+													justifyContent: "center",
+													alignItems: "center"
+												}}
 											>
 												<Statistic
 													title={item.title}
 													value={item.value}
+													style={{
+														display: "flex",
+														flexDirection: "column",
+														justifyContent: "center",
+														alignItems: "center"
+													}}
 												/>
 											</List.Item>
 										))}

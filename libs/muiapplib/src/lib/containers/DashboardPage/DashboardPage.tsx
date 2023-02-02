@@ -12,6 +12,7 @@ import PrimaryBoardItem from "./PrimaryBoardItem/PrimaryBoardItem";
 import { dashboardPageStyles } from "./DashboardPage.styles";
 import { getTaskTypeLabel } from "./DashboardPage.utils";
 import addIcon from "../../assets/icons/plusIcon.svg";
+import extrawestLogo from "../../assets/icons/extrawestLogo.png";
 
 export const DashboardPage = () => {
 	const navigate = useNavigate();
@@ -123,6 +124,18 @@ export const DashboardPage = () => {
 						</Box>
 					</Box>
 				}
+			</Box>
+			<Box
+				sx={dashboardPageStyles.logo}
+			>
+				Powered by Extrawest
+				<Box
+					sx={{
+						height: "30px"
+					}}
+					component="img"
+					src={extrawestLogo}
+				/>
 			</Box>
 		</PrivatePageLayout>
 	);
