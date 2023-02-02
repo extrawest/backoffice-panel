@@ -60,12 +60,12 @@ export const PrivatePageLayout: FC<PropsWithChildren<PrivatePageLayoutProps>> = 
 							letterSpacing: "0.3px",
 							color: "#9FA2B4",
 							display: "flex",
-							justifyContent: "center",
+							justifyContent: "flex-end",
 							alignItems: "center",
-							padding: "10px",
 							width: "100%",
 							gap: "10px",
-							background: "white"
+							background: "white",
+							padding: "10px"
 						}}
 					>
 						Powered by Extrawest
