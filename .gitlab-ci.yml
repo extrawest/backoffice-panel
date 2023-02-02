@@ -43,6 +43,7 @@ deploy_dev:
   before_script:
     - npm i -g firebase-tools
   script:
+    - npm run run:many
     - firebase deploy --only hosting:muiapp --token $FIREBASE_TOKEN
     - firebase deploy --only hosting:antapp --token $FIREBASE_TOKEN
     - firebase deploy --only hosting:primeapp --token $FIREBASE_TOKEN
