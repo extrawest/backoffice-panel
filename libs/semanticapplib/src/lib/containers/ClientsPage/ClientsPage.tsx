@@ -110,6 +110,7 @@ export const ClientsPage = () => {
 					<Table
 						striped
 						unstackable
+						size="small"
 					>
 						<Table.Header>
 							<Table.Row >
