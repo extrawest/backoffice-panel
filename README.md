@@ -1,22 +1,12 @@
-
 # Backoffice Panel App
 
 Simple backoffice panel made with 5 different ui libraries. Material UI, Ant desigh, Prime React, Semantic UI and Tailwind.
 
-## Tech
+![Maintaner](https://img.shields.io/badge/maintainer-extrawest.com-blue) ![GitHub license](https://img.shields.io/github/license/extrawest/react-nx-starter) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/extrawest/react-nx-starter/graphs/commit-activity) ![GitHub release](https://img.shields.io/github/v/release/extrawest/react-nx-starter) [![GitHub tag](https://img.shields.io/github/v/tag/extrawest/react-nx-starter)](https://github.com/extrawest/react-nx-starter/tags/)
 
-Budget Control System uses a number of open source projects to work properly:
+### List of Tools
 
-- [React JS] - JS library for creating user interfaces!
-- [VS Code] - awesome text editor
-- [Node.js] - I/O for the backend
-- [Firebase] - Backed by Google
-
-[VS Code]: <https://code.visualstudio.com/>
-   [node.js]: <http://nodejs.org>
-   [React JS]: <https://ru.reactjs.org/>
-   [Firebase]: <https://firebase.google.com/>
-
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white) ![Material UI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=mui&logoColor=white) ![Ant Design](https://img.shields.io/badge/Ant--Design-grey?style=for-the-badge&logo=antdesign&logoColor=red) ![Prime React](https://img.shields.io/badge/Prime--React-0081CB?style=for-the-badge&logo=&logoColor=white) ![Semantic](https://img.shields.io/badge/Semantic-4F46E5?style=for-the-badge&logo=Semantic+UI+React&logoColor=white) ![Tailwind](https://img.shields.io/static/v1?style=for-the-badge&message=Tailwind+CSS&color=222222&logo=Tailwind+CSS&logoColor=06B6D4&label=) ![Nx](https://img.shields.io/badge/workspace-143157?style=for-the-badge&logo=NX&logoColor=white) ![Firebase](https://img.shields.io/badge/Firebase-FFCB2B?style=for-the-badge&logo=firebase&logoColor=333333)
 ## Installation
 
 Clone the project
