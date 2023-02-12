@@ -3,12 +3,13 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/muiapplib/src",
   "projectType": "library",
+  "tags": [],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/muiapplib/**/*.ts"]
+        "lintFilePatterns": ["libs/muiapplib/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
@@ -19,6 +20,5 @@
         "passWithNoTests": true
       }
     }
-  },
-  "tags": []
+  }
 }

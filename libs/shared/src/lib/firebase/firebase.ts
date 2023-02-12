@@ -1,5 +1,13 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import {
+	addDoc,
+	collection, CollectionReference, getFirestore, serverTimestamp, Timestamp,
+} from "firebase/firestore";
+import { getStorage } from "firebase/storage";
+import {
+	ClientTicket, ClientTicketAddFormValues, Task
+} from "../types";
 
 const firebaseConfig = {
 	apiKey: process.env["NX_API_KEY"],
@@ -11,6 +19,35 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
+const firebaseAuth = getAuth(firebaseApp);
 const firebaseFirestore = getFirestore(firebaseApp);
+const firebaseStorage = getStorage(firebaseApp);
 
-export { firebaseApp, firebaseFirestore };
+const firebaseClientsDBRef = collection(
+	firebaseFirestore,
+	"clients"
+) as CollectionReference<ClientTicket>;
+
+const firebaseTasksDBRef = collection(
+	firebaseFirestore,
+	"tasks"
+) as CollectionReference<Task>;
+
+const handleAddDataToClientTicketsList = async (
+	values: ClientTicketAddFormValues, userAvatar?: string,
+) => {
+	addDoc(
+		firebaseClientsDBRef,
+		{
+			priority: values.priority,
+			title: values.ticketTitle,
+			userName: values.fullName,
+			dateOfCreationTicket: serverTimestamp(),
+			lastUpdated: serverTimestamp(),
+			userAccountCreationDate: Timestamp.fromMillis(parseInt(`${values.dateOfAccount}`)),
+			userAvatar: userAvatar ?? " "
+		}
+	);
+};
+
+export { firebaseApp, firebaseAuth, firebaseClientsDBRef, firebaseStorage, firebaseTasksDBRef, handleAddDataToClientTicketsList };
